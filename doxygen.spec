@@ -76,7 +76,7 @@ export QTDIR=%{_prefix}
 ## don't change it to %%configure!!!
 ./configure \
 	--prefix %{_prefix} \
-	--perl %{_bindir}/perl
+	--perl %{_bindir}/perl \
 #	--with-doxywizard
 
 %{__make} \
