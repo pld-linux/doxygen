@@ -112,7 +112,7 @@ Wizard gráfico para o Doxygen
 %patch1 -p1
 %patch2 -p1
 
-rm -rf libpng
+rm -rf libpng src/unistd.h
 
 %build
 export QTDIR=%{_prefix}
