@@ -1,25 +1,26 @@
+
+%define relc rc3
+
 Summary:	Doxygen is the documentation system for C/C++
 Summary(pl):	System dokumentowania dla C/C++
 Summary(pt_BR):	Um sistema de documentaГЦo para C/C++
 Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
-Version:	1.2.18
-Release:	2
+Version:	1.3
+Release:	0.%{relc}
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
-Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
+Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}-%{relc}.src.tar.gz
 Patch0:		%{name}-system-libpng.patch
-URL:		http://www.stack.nl/~dimitri/doxygen/
+URL:		http://www.doxygen.org/
 BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
-BuildRequires:	libstdc++-devel
-BuildRequires:	tetex
-BuildRequires:	tetex-dvips
-BuildRequires:	tetex-latex
-BuildRequires:	tetex-pdftex
+BuildRequires:	tetex-format-latex
+BuildRequires:	tetex-format-pdflatex
+BuildRequires:	tetex-plain-misc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -96,7 +97,7 @@ plikСw konfiguracyjnych u©ywanych przez doxygen.
 Wizard grАfico para o Doxygen
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{relc}
 %patch -p1
 
 rm -rf libpng
@@ -116,25 +117,20 @@ export QTDIR=%{_prefix}
 	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
 
 %{__make} docs
-#%{__make} ps
-#mkdir ps
-#mv -f latex/doxygen_manual.ps ps
+#%{__make} pdf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d ${RPM_BUILD_ROOT}%{_bindir}
-install -d ${RPM_BUILD_ROOT}%{_examplesdir}/%{name}
+install -d $RPM_BUILD_ROOT%{_bindir}
 
-install bin/doxy* ${RPM_BUILD_ROOT}%{_bindir}
-cp -a examples/* ${RPM_BUILD_ROOT}%{_examplesdir}/%{name}
+install bin/doxy* $RPM_BUILD_ROOT%{_bindir}
 
 %clean
-rm -rf ${RPM_BUILD_ROOT}
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc html README LICENSE
-%{_examplesdir}/%{name}
+%doc html examples README LICENSE
 %attr(755,root,root) %{_bindir}/doxygen
 %attr(755,root,root) %{_bindir}/doxytag
 %attr(755,root,root) %{_bindir}/doxysearch
