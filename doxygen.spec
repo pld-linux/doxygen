@@ -92,7 +92,7 @@ Summary:	A GUI front-end for creating and editing configuration files
 Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Summary(pt_BR):	Wizard gráfico para o Doxygen
 Group:		X11/Applications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Requires:	qt >= 2.1.0
 
 %description doxywizard
