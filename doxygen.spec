@@ -1,5 +1,6 @@
-Summary:	Doxygen is THE documentation system for C/C++
-Summary(pt_BR): Um sistema de documentação para C/C++
+Summary:	Doxygen is the documentation system for C/C++
+Summary(pl):	System dokumentowania dla C/C++
+Summary(pt_BR):	Um sistema de documentação para C/C++
 Name:		doxygen
 Version:	1.2.11
 Release:	1
@@ -28,14 +29,27 @@ Doxygen can also be configured to extract the code-structure from
 undocumented source files. This can be very useful to quickly find
 your way in large source distributions.
 
+%description -l pl
+Doxygen to system dokumentowania dla C, C++ i IDL. Mo¿e generowaæ
+dokumentacjê klas on-line (w HTML) lub podrêcznik off-line (w LaTeX-u)
+z zestawu udokumentowanych plików ¼ród³owych. Ma tak¿e mo¿liwo¶æ
+generowania stron man i konwersji na Postscript, PDF z hiper³±czami
+oraz skompresowany HTML. Dokumentacja jest wyci±gana bezpo¶rednio ze
+¼róde³.
+
+Doxygen mo¿e byæ skonfigurowany tak¿e do wyci±gania struktury kodu z
+nieudokumentowanych plików ¼ród³owych. Mo¿e byæ to przydatne do
+szybkiego odnalezienia siê w du¿ych ¼ród³ach.
+
 %description -l pt_BR
-Doxygen é uma sistema de documentação para C e C++ que gera um class browser
-on-line (em HTML) e/ou um manual de referencia off-line (em LaTeX) a partir de
-um conjunto de fontes documentados. A documentação é extraida diretamente a
-partir dos fontes.
+Doxygen é uma sistema de documentação para C e C++ que gera um class
+browser on-line (em HTML) e/ou um manual de referencia off-line (em
+LaTeX) a partir de um conjunto de fontes documentados. A documentação
+é extraida diretamente a partir dos fontes.
 
 %package doxywizard
-Summary:	a GUI front-end for creating and editing configuration files
+Summary:	A GUI front-end for creating and editing configuration files
+Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
@@ -44,6 +58,10 @@ Requires:	%{name} = %{version}, qt >= 2.2
 %description doxywizard
 Doxywizard is a GUI front-end for creating and editing configuration
 files that are used by doxygen.
+
+%description doxywizard -l pl
+Doxywizard to frontend z graficznym interfejsem do tworzenia i edycji
+plików konfiguracyjnych u¿ywanych przez doxygen.
 
 %prep
 %setup -q
