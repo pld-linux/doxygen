@@ -1,15 +1,16 @@
-Name:		doxygen
 Summary:	Doxygen is THE documentation system for C/C++
+Name:		doxygen
 Version:	1.2.3
 Release:	1
+License:	GPL
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
 Group(fr):	Development/Outils
 Group(pl):	Programowanie/Narzêdzia
-License:	GPL
-URL:		http://www.stack.nl/~dimitri/doxygen/
 Source0:	http://www.stack.nl/~dimitri/doxygen/dl/%{name}-%{version}.src.tar.gz
-BuildRequires:	qt-devel
+URL:		http://www.stack.nl/~dimitri/doxygen/
+BuildRequires:	libstdc++-devel
+BuildRequires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ExcludeArch:	alpha
 
@@ -35,8 +36,10 @@ export QTDIR=%{_prefix}
 	--prefix %{_prefix} \
 	--perl %{_bindir}/perl \
 
+%{__make} CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}" \
+	CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} \
+	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
 
-%{__make}
 %{__make} docs
 %{__make} ps
 mkdir ps
@@ -45,7 +48,8 @@ mv -f latex/doxygen_manual.ps ps
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d ${RPM_BUILD_ROOT}%{_bindir}
-install -s bin/doxy* ${RPM_BUILD_ROOT}%{_bindir}
+
+install bin/doxy* ${RPM_BUILD_ROOT}%{_bindir}
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -54,6 +58,6 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(644,root,root,755)
 %doc html examples ps
 %doc README LICENSE
-%{_bindir}/doxygen
-%{_bindir}/doxytag
-%{_bindir}/doxysearch
+%attr(755,root,root) %{_bindir}/doxygen
+%attr(755,root,root) %{_bindir}/doxytag
+%attr(755,root,root) %{_bindir}/doxysearch
