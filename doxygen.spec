@@ -54,7 +54,8 @@ Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Requires:	%{name} = %{version}, qt >= 2.2 
+Requires:	%{name} = %{version}
+Requires:	qt >= 2.2 
 
 %description doxywizard
 Doxywizard is a GUI front-end for creating and editing configuration
@@ -75,7 +76,8 @@ export QTDIR=%{_prefix}
 	--perl %{_bindir}/perl
 #	--with-doxywizard
 
-%{__make} CFLAGS="%{rpmcflags}" \
+%{__make} \
+	CFLAGS="%{rpmcflags}" \
 	CXXFLAGS="%{rpmcflags} \
 	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
 
