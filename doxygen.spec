@@ -50,7 +50,7 @@ Summary:	A GUI front-end for creating and editing configuration files
 Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Group:		X11/Applications
 Requires:	%{name} = %{version}
-Requires:	qt >= 2.2 
+Requires:	qt >= 2.2
 
 %description doxywizard
 Doxywizard is a GUI front-end for creating and editing configuration
