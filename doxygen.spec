@@ -12,7 +12,6 @@ URL:		http://www.stack.nl/~dimitri/doxygen/
 BuildRequires:	libstdc++-devel
 BuildRequires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-ExcludeArch:	alpha
 
 %description
 Doxygen is a documentation system for C, C++ and IDL. It can generate
