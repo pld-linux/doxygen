@@ -14,8 +14,9 @@ URL:		http://www.stack.nl/~dimitri/doxygen/
 #BuildRequires:	qt-devel => 3.0.5
 BuildRequires:	libstdc++-devel
 BuildRequires:	tetex
-BuildRequires:	tetex-latex
 BuildRequires:	tetex-dvips
+BuildRequires:	tetex-latex
+BuildRequires:	tetex-pdftex
 BuildRequires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
