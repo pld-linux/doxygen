@@ -47,7 +47,7 @@ your way in large source distributions.
 
 %description -l pl
 Doxygen to system dokumentowania dla C, C++ i IDL. Mo¿e generowaæ
-dokumentacjê klas on-line (w HTML) lub podrêcznik off-line (w LaTeX-u)
+dokumentacjê klas on-line (w HTML) lub podrêcznik off-line (w LaTeXu)
 z zestawu udokumentowanych plików ¼ród³owych. Ma tak¿e mo¿liwo¶æ
 generowania stron man i konwersji na Postscript, PDF z hiper³±czami
 oraz skompresowany HTML. Dokumentacja jest wyci±gana bezpo¶rednio ze
