@@ -8,13 +8,13 @@ Summary(pt_BR):	Um sistema de documentaГЦo para C/C++
 Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
-Version:	1.3.5
-Release:	2
+Version:	1.3.6
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
-# Source0-md5:	58f5ed6de54725ba52c2bb6a18d5a147
+# Source0-md5:	74d3cfb6463bfd4ed1d051153375156d
 Patch0:		%{name}-system-libpng.patch
 Patch1:		%{name}-qtstyle.patch
 Patch2:		%{name}-qt-dirs.patch
