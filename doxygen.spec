@@ -1,20 +1,20 @@
-#
-# Conditional build:
-# _without_qt	- without doxywizard (qt-based)
-#
+
+%bcond_without qt	# without doxywizard (qt-based)
+
 Summary:	Doxygen is the documentation system for C/C++
+Summary(es):	Doxygen es el sistema de documentación para C/C++
 Summary(pl):	System dokumentowania dla C/C++
 Summary(pt_BR):	Um sistema de documentação para C/C++
 Summary(ru):	óÉÓÔÅÍÁ ÄÏËÕÍÅÎÔÉÒÏ×ÁÎÉÑ ÄÌÑ C ÔÁ C++
 Summary(uk):	óÉÓÔÅÍÁ ÄÏËÕÍÅÎÔÕ×ÁÎÎÑ ÄÌÑ C ÔÁ C++
 Name:		doxygen
-Version:	1.3.4
+Version:	1.3.5
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
-# Source0-md5:	cd81c0f8a8e77dc33cc754f6f8852ca4
+# Source0-md5:	58f5ed6de54725ba52c2bb6a18d5a147
 Patch0:		%{name}-system-libpng.patch
 Patch1:		%{name}-qtstyle.patch
 Patch2:		%{name}-qt-dirs.patch
@@ -24,7 +24,7 @@ BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
-%{!?_without_qt:BuildRequires:	qt-devel >= 2.1.0}
+%{?with_qt:BuildRequires:	qt-devel >= 2.1.0}
 BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-format-pdflatex
 BuildRequires:	tetex-plain-misc
@@ -44,6 +44,20 @@ documentation is extracted directly from the sources.
 Doxygen can also be configured to extract the code-structure from
 undocumented source files. This can be very useful to quickly find
 your way in large source distributions.
+
+%description -l es
+Doxygen es un sistema de documentación para C, C++ e IDL. Es capaz de
+generar un navegador on-line entre clases (en HTML) y-o un manual
+off-line de referencia (en LaTeX) a partir de un conjunto de ficheros
+de código fuente documentados. También hay soporte para generar
+páginas man y para convertir la generada salida an Postscript, PDF con
+hiperenlaces o HTML comprimido. La documentación se extrae directamente
+de los fuentes.
+
+Doxygen puede también ser configurado a extraer la estructura del
+código de código fuente que carece de documentación. Eso puede ser
+muy útil para orientarse rápidamente en distribuciones grandes de
+código fuente.
 
 %description -l pl
 Doxygen to system dokumentowania dla C, C++ i IDL. Mo¿e generowaæ
@@ -89,6 +103,7 @@ Doxygen ÍÏÖÎÁ ÔÁËÏÖ ÚËÏÎÆ¦ÇÕÒÕ×ÁÔÉ ÄÌÑ ÏÔÒÉÍÁÎÎÑ ÓÔÒÕËÔÕÒÉ ËÏÄÕ Ú
 
 %package doxywizard
 Summary:	A GUI front-end for creating and editing configuration files
+Summary(es):	Un front-end GUI para crear y editar ficheros de configuración
 Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Summary(pt_BR):	Wizard gráfico para o Doxygen
 Group:		X11/Applications
@@ -98,6 +113,10 @@ Requires:	qt >= 2.1.0
 %description doxywizard
 Doxywizard is a GUI front-end for creating and editing configuration
 files that are used by doxygen.
+
+%description doxywizard -l es
+Doxywizard es un front-end GUI para crear y editar los ficheros de
+configuración que son usados por doxygen.
 
 %description doxywizard -l pl
 Doxywizard to frontend z graficznym interfejsem do tworzenia i edycji
@@ -121,7 +140,7 @@ export QTDIR=%{_prefix}
 	--prefix %{_prefix} \
 	--perl %{_bindir}/perl \
 	--install %{_bindir}/install \
-	%{!?_without_qt:--with-doxywizard}
+	%{?with_qt:--with-doxywizard}
 
 %{__make} QTDIR=%{_prefix} \
 	CFLAGS="%{rpmcflags}" \
@@ -146,7 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/doxygen
 %attr(755,root,root) %{_bindir}/doxytag
 
-%if 0%{!?_without_qt:1}
+%if %{with qt}
 %files doxywizard
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/doxywizard
