@@ -1,13 +1,20 @@
---- doxygen-1.3.2/tmake/lib/linux-g++/tmake.conf.orig	2002-08-01 09:29:09.000000000 +0200
-+++ doxygen-1.3.2/tmake/lib/linux-g++/tmake.conf	2003-06-16 21:30:46.000000000 +0200
-@@ -29,8 +29,8 @@
+--- doxygen-1.3.2/tmake/lib/linux-g++/tmake.conf~	2002-08-01 09:29:09.000000000 +0200
++++ doxygen-1.3.2/tmake/lib/linux-g++/tmake.conf	2003-06-17 16:57:29.000000000 +0200
+@@ -29,7 +29,7 @@
  TMAKE_LIBDIR		=
  TMAKE_INCDIR_X11	= /usr/X11R6/include
  TMAKE_LIBDIR_X11	= /usr/X11R6/lib
 -TMAKE_INCDIR_QT		= $(QTDIR)/include
--TMAKE_LIBDIR_QT		= $(QTDIR)/lib
-+TMAKE_INCDIR_QT		= /usr/include/qt
-+TMAKE_LIBDIR_QT		= /usr/lib
++TMAKE_INCDIR_QT		= $(QTDIR)/include/qt
+ TMAKE_LIBDIR_QT		= $(QTDIR)/lib
  TMAKE_INCDIR_OPENGL	= /usr/X11R6/include
  TMAKE_LIBDIR_OPENGL	= /usr/X11R6/lib
+@@ -45,7 +45,7 @@
+ TMAKE_LIBS		=
+ TMAKE_LIBS_X11		= -lXext -lX11 -lm
+ TMAKE_LIBS_X11SM	= -lICE -lSM
+-TMAKE_LIBS_QT		= -lqt
++TMAKE_LIBS_QT		= -lqt-mt
+ TMAKE_LIBS_QT_OPENGL	= -lqgl
+ TMAKE_LIBS_OPENGL	= -lMesaGL -lMesaGLU -lXmu
  
