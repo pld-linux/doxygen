@@ -1,6 +1,7 @@
-
+#
+# Conditional build:
 %bcond_without qt	# without doxywizard (qt-based)
-
+#
 Summary:	Doxygen is the documentation system for C/C++
 Summary(es):	Doxygen es el sistema de documentación para C/C++
 Summary(pl):	System dokumentowania dla C/C++
@@ -107,7 +108,7 @@ Summary(es):	Un front-end GUI para crear y editar ficheros de configuración
 Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Summary(pt_BR):	Wizard gráfico para o Doxygen
 Group:		X11/Applications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	qt >= 2.1.0
 
 %description doxywizard
