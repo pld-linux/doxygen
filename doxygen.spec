@@ -101,6 +101,7 @@ export QTDIR=%{_prefix}
 ./configure \
 	--prefix %{_prefix} \
 	--perl %{_bindir}/perl \
+	--install %{_bindir}/install
 #	--with-doxywizard
 
 %{__make} \
