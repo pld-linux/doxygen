@@ -115,15 +115,18 @@ mv -f latex/doxygen_manual.ps ps
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d ${RPM_BUILD_ROOT}%{_bindir}
+install -d ${RPM_BUILD_ROOT}%{_examplesdir}/%{name}
 
 install bin/doxy* ${RPM_BUILD_ROOT}%{_bindir}
+cp -a examples/* ${RPM_BUILD_ROOT}%{_examplesdir}/%{name}
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
-%doc html examples README LICENSE
+%doc html README LICENSE
+%{_examplesdir}/%{name}
 %attr(755,root,root) %{_bindir}/doxygen
 %attr(755,root,root) %{_bindir}/doxytag
 %attr(755,root,root) %{_bindir}/doxysearch
