@@ -1,6 +1,7 @@
---- doxygen-1.2.18/configure.orig	Wed Aug 21 19:48:09 2002
-+++ doxygen-1.2.18/configure	Wed Jan 29 21:14:26 2003
-@@ -434,7 +434,7 @@
+diff -Nru doxygen-1.3.4.orig/configure doxygen-1.3.4/configure
+--- doxygen-1.3.4.orig/configure	2003-08-25 19:48:25.000000000 +0200
++++ doxygen-1.3.4/configure	2003-09-23 10:02:51.360509912 +0200
+@@ -427,7 +427,7 @@
  EOF
  fi
  
@@ -9,7 +10,7 @@
  
  for i in $f_inmakefiles ; do
       SRC=$i
-@@ -451,7 +451,6 @@
+@@ -444,7 +444,6 @@
         echo "" >> $DST
         echo "all: src/version.cpp " >> $DST
         echo "	\$(MAKE) -C qtools" >> $DST
@@ -17,12 +18,12 @@
         echo "	\$(MAKE) -C src" >> $DST
         if test $f_wizard = YES; then
           echo "	\$(MAKE) -C addon/doxywizard" >> $DST
-@@ -467,7 +466,7 @@
+@@ -460,7 +459,7 @@
       echo "  Created $DST from $SRC..."
  done
  
--f_inprofiles="qtools/qtools.pro.in src/libdoxygen.pro.in src/libdoxycfg.pro.in src/doxygen.pro.in src/doxytag.pro.in src/doxysearch.pro.in addon/doxywizard/doxywizard.pro.in addon/doxmlparser/src/doxmlparser.pro.in addon/doxmlparser/test/xmlparse.pro.in addon/doxmlparser/examples/metrics/metrics.pro.in libpng/libpng.pro.in" 
-+f_inprofiles="qtools/qtools.pro.in src/libdoxygen.pro.in src/libdoxycfg.pro.in src/doxygen.pro.in src/doxytag.pro.in src/doxysearch.pro.in addon/doxywizard/doxywizard.pro.in addon/doxmlparser/src/doxmlparser.pro.in addon/doxmlparser/test/xmlparse.pro.in addon/doxmlparser/examples/metrics/metrics.pro.in" 
+-f_inprofiles="qtools/qtools.pro.in src/libdoxygen.pro.in src/libdoxycfg.pro.in src/doxygen.pro.in src/doxytag.pro.in addon/doxywizard/doxywizard.pro.in addon/doxmlparser/src/doxmlparser.pro.in addon/doxmlparser/test/xmlparse.pro.in addon/doxmlparser/examples/metrics/metrics.pro.in libpng/libpng.pro.in" 
++f_inprofiles="qtools/qtools.pro.in src/libdoxygen.pro.in src/libdoxycfg.pro.in src/doxygen.pro.in src/doxytag.pro.in addon/doxywizard/doxywizard.pro.in addon/doxmlparser/src/doxmlparser.pro.in addon/doxmlparser/test/xmlparse.pro.in addon/doxmlparser/examples/metrics/metrics.pro.in" 
  
  for i in $f_inprofiles ; do
       SRC=$i
