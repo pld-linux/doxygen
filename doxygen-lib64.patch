@@ -3,10 +3,10 @@
 @@ -24,7 +24,7 @@
  INCPATH	=	-I../../src -I$(QTDIR)/include/qt
  LINK	=	g++
- LFLAGS	=	
+ LFLAGS	=	-g
 -LIBS	=	 -L$(QTDIR)/lib -lqt-mt -L/usr/X11R6/lib -lXext -lX11 -lm
 +LIBS	=	 -L$(QTDIR)/lib64 -lqt-mt -L/usr/X11R6/lib64 -lXext -lX11 -lm
- MOC	=	/usr/bin/moc
+ MOC	=	/usr/lib/qt3/bin/moc
  
  TAR	=	tar -cf
 --- doxygen-1.3.8/configure.orig	2004-07-25 17:51:05.662304184 +0200
