@@ -1,19 +1,17 @@
 
-%define relc rc3
-
 Summary:	Doxygen is the documentation system for C/C++
 Summary(pl):	System dokumentowania dla C/C++
 Summary(pt_BR):	Um sistema de documentaГЦo para C/C++
 Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
-Version:	1.3.1
+Version:	1.3.2
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
-# Source0-md5:	42433b2731553923176948168f5ecf71
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
+# Source0-md5:	d331ae38761ef9d8ce9f51988f01dcb8
 Patch0:		%{name}-system-libpng.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
