@@ -18,6 +18,7 @@ Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 Patch0:		%{name}-system-libpng.patch
 Patch1:		%{name}-qtstyle.patch
 Patch2:		%{name}-qt-dirs.patch
+Patch3:		%{name}-lib64.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
 BuildRequires:	ghostscript
@@ -130,6 +131,9 @@ Wizard gráfico para o Doxygen
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%ifarch amd64
+%patch3 -p1
+%endif
 
 rm -rf libpng src/unistd.h
 
