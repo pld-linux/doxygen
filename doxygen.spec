@@ -5,19 +5,20 @@ Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
 Version:	1.2.18
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
+Patch0:		%{name}-system-libpng.patch
 URL:		http://www.stack.nl/~dimitri/doxygen/
-#BuildRequires:	qt-devel => 3.0.5
+BuildRequires:	ghostscript
+BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	tetex
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
 BuildRequires:	tetex-pdftex
-BuildRequires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -95,6 +96,9 @@ Wizard grАfico para o Doxygen
 
 %prep
 %setup -q
+%patch -p1
+
+rm -rf libpng
 
 %build
 export QTDIR=%{_prefix}
