@@ -13,6 +13,7 @@ Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}-%{relc}.src.tar.gz
+# Source0-md5: 21897d50fa38c0892e2a237a6bea7fb8
 Patch0:		%{name}-system-libpng.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
