@@ -12,7 +12,7 @@ Group(fr):	Development/Outils
 Group(pl):	Programowanie/Narzêdzia
 Source0:	http://www.stack.nl/~dimitri/doxygen/dl/%{name}-%{version}.src.tar.gz
 URL:		http://www.stack.nl/~dimitri/doxygen/
-BuildPrereq:	qt-devel => 2.1
+BuildRequires:	qt-devel => 2.1
 BuildRequires:	libstdc++-devel
 BuildRequires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
