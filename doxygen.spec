@@ -8,17 +8,16 @@ Summary(pt_BR):	Um sistema de documentaГЦo para C/C++
 Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
-Version:	1.3.6
+Version:	1.3.7
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
-# Source0-md5:	74d3cfb6463bfd4ed1d051153375156d
+# Source0-md5:	06923b08531f7bd7ad7e66c866252a25
 Patch0:		%{name}-system-libpng.patch
-Patch1:		%{name}-qtstyle.patch
-Patch2:		%{name}-qt-dirs.patch
-Patch3:		%{name}-lib64.patch
+Patch1:		%{name}-qt-dirs.patch
+Patch2:		%{name}-lib64.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
 BuildRequires:	ghostscript
@@ -130,9 +129,8 @@ Wizard grАfico para o Doxygen
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 %ifarch amd64
-%patch3 -p1
+%patch2 -p1
 %endif
 
 rm -rf libpng src/unistd.h
