@@ -13,6 +13,7 @@ Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 Patch0:		%{name}-system-libpng.patch
 URL:		http://www.stack.nl/~dimitri/doxygen/
 BuildRequires:	ghostscript
+BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	tetex
