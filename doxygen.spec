@@ -1,7 +1,9 @@
 Summary:	Doxygen is THE documentation system for C/C++
+Summary(pt_BR): Um sistema de documentação para C/C++
 Name:		doxygen
 Version:	1.2.11
 Release:	1
+Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
@@ -9,6 +11,7 @@ Group(fr):	Development/Outils
 Group(pl):	Programowanie/Narzêdzia
 Source0:	http://www.stack.nl/~dimitri/doxygen/dl/%{name}-%{version}.src.tar.gz
 URL:		http://www.stack.nl/~dimitri/doxygen/
+BuildPrereq:	qt-devel => 2.1
 BuildRequires:	libstdc++-devel
 BuildRequires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -25,6 +28,23 @@ Doxygen can also be configured to extract the code-structure from
 undocumented source files. This can be very useful to quickly find
 your way in large source distributions.
 
+%description -l pt_BR
+Doxygen é uma sistema de documentação para C e C++ que gera um class browser
+on-line (em HTML) e/ou um manual de referencia off-line (em LaTeX) a partir de
+um conjunto de fontes documentados. A documentação é extraida diretamente a
+partir dos fontes.
+
+%package doxywizard
+Summary:	a GUI front-end for creating and editing configuration files
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
+Requires:	%{name} = %{version}, qt >= 2.2 
+
+%description doxywizard
+Doxywizard is a GUI front-end for creating and editing configuration
+files that are used by doxygen.
+
 %prep
 %setup -q
 
@@ -33,7 +53,8 @@ export QTDIR=%{_prefix}
 ## don't change it to %%configure!!!
 ./configure \
 	--prefix %{_prefix} \
-	--perl %{_bindir}/perl \
+	--perl %{_bindir}/perl
+#	--with-doxywizard
 
 %{__make} CFLAGS="%{rpmcflags}" \
 	CXXFLAGS="%{rpmcflags} \
@@ -50,13 +71,18 @@ install -d ${RPM_BUILD_ROOT}%{_bindir}
 
 install bin/doxy* ${RPM_BUILD_ROOT}%{_bindir}
 
+gzip -9nf README LICENSE
+
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
-%doc html examples ps
-%doc README LICENSE
+%doc html examples *.gz
 %attr(755,root,root) %{_bindir}/doxygen
 %attr(755,root,root) %{_bindir}/doxytag
 %attr(755,root,root) %{_bindir}/doxysearch
+
+#%files doxywizard
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_bindir}/doxywizard
