@@ -53,13 +53,13 @@ generar un navegador on-line entre clases (en HTML) y-o un manual
 off-line de referencia (en LaTeX) a partir de un conjunto de ficheros
 de código fuente documentados. También hay soporte para generar
 páginas man y para convertir la generada salida an Postscript, PDF con
-hiperenlaces o HTML comprimido. La documentación se extrae directamente
-de los fuentes.
+hiperenlaces o HTML comprimido. La documentación se extrae
+directamente de los fuentes.
 
 Doxygen puede también ser configurado a extraer la estructura del
-código de código fuente que carece de documentación. Eso puede ser
-muy útil para orientarse rápidamente en distribuciones grandes de
-código fuente.
+código de código fuente que carece de documentación. Eso puede ser muy
+útil para orientarse rápidamente en distribuciones grandes de código
+fuente.
 
 %description -l pl
 Doxygen to system dokumentowania dla C, C++ i IDL. Mo¿e generowaæ
@@ -125,7 +125,7 @@ Doxywizard to frontend z graficznym interfejsem do tworzenia i edycji
 plików konfiguracyjnych u¿ywanych przez doxygen.
 
 %description doxywizard -l pt_BR
-Wizard gráfico para o Doxygen
+Wizard gráfico para o Doxygen.
 
 %prep
 %setup -q
