@@ -11,7 +11,7 @@ License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 URL:		http://www.stack.nl/~dimitri/doxygen/
-BuildRequires:	qt-devel => 3.0.5
+#BuildRequires:	qt-devel => 3.0.5
 BuildRequires:	libstdc++-devel
 BuildRequires:	tetex
 BuildRequires:	tetex-latex
