@@ -5,13 +5,13 @@ Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
 Version:	1.2.15
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 URL:		http://www.stack.nl/~dimitri/doxygen/
-BuildRequires:	qt-devel => 2.1
+BuildRequires:	qt-devel => 3.0.5
 BuildRequires:	libstdc++-devel
 BuildRequires:	tetex
 BuildRequires:	tetex-latex
@@ -118,14 +118,12 @@ install -d ${RPM_BUILD_ROOT}%{_bindir}
 
 install bin/doxy* ${RPM_BUILD_ROOT}%{_bindir}
 
-gzip -9nf README LICENSE
-
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
-%doc html examples *.gz
+%doc html examples README LICENSE
 %attr(755,root,root) %{_bindir}/doxygen
 %attr(755,root,root) %{_bindir}/doxytag
 %attr(755,root,root) %{_bindir}/doxysearch
