@@ -19,7 +19,7 @@ BuildRequires:	flex
 BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
-BuildRequires:	libstdc++-static
+BuildRequires:	libstdc++-devel
 BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-format-pdflatex
 BuildRequires:	tetex-plain-misc
