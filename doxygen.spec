@@ -36,8 +36,8 @@ export QTDIR=%{_prefix}
 	--prefix %{_prefix} \
 	--perl %{_bindir}/perl \
 
-%{__make} CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}" \
-	CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} \
+%{__make} CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}" \
+	CXXFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} \
 	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
 
 %{__make} docs
