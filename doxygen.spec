@@ -2,15 +2,15 @@ Summary:	Doxygen is the documentation system for C/C++
 Summary(pl):	System dokumentowania dla C/C++
 Summary(pt_BR):	Um sistema de documentação para C/C++
 Name:		doxygen
-Version:	1.2.11
-Release:	2
+Version:	1.2.13
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
 Group(fr):	Development/Outils
 Group(pl):	Programowanie/Narzêdzia
-Source0:	http://www.stack.nl/~dimitri/doxygen/dl/%{name}-%{version}.src.tar.gz
+Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 URL:		http://www.stack.nl/~dimitri/doxygen/
 BuildRequires:	qt-devel => 2.1
 BuildRequires:	libstdc++-devel
