@@ -123,7 +123,7 @@ export QTDIR=%{_prefix}
 	--install %{_bindir}/install \
 	%{!?_without_qt:--with-doxywizard}
 
-%{__make} \
+%{__make} QTDIR=%{_prefix} \
 	CFLAGS="%{rpmcflags}" \
 	CXXFLAGS="%{rpmcflags} \
 	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
