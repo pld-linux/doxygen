@@ -1,36 +1,38 @@
-diff -durN -x '*~' doxygen-1.3.5.orig/addon/doxywizard/Makefile.doxywizard doxygen-1.3.5/addon/doxywizard/Makefile.doxywizard
---- doxygen-1.3.5.orig/addon/doxywizard/Makefile.doxywizard	2003-11-20 22:34:01.000000000 +0100
-+++ doxygen-1.3.5/addon/doxywizard/Makefile.doxywizard	2004-12-26 11:44:36.414181592 +0100
+--- doxygen-1.3.8/addon/doxywizard/Makefile.doxywizard.orig	2004-07-25 18:00:40.892855848 +0200
++++ doxygen-1.3.8/addon/doxywizard/Makefile.doxywizard	2004-07-25 18:14:46.143358240 +0200
 @@ -24,7 +24,7 @@
- INCPATH	=	-I../../src -I$(QTDIR)/include
+ INCPATH	=	-I../../src -I$(QTDIR)/include/qt
  LINK	=	g++
- LFLAGS	=	-g
--LIBS	=	 -L$(QTDIR)/lib -lqt -L/usr/X11R6/lib -lXext -lX11 -lm
-+LIBS	=	 -L$(QTDIR)/lib64 -lqt -L/usr/X11R6/lib64 -lXext -lX11 -lm
- MOC	=	/usr/lib/qt-2.3.1/bin/moc
+ LFLAGS	=	
+-LIBS	=	 -L$(QTDIR)/lib -lqt-mt -L/usr/X11R6/lib -lXext -lX11 -lm
++LIBS	=	 -L$(QTDIR)/lib64 -lqt-mt -L/usr/X11R6/lib64 -lXext -lX11 -lm
+ MOC	=	/usr/bin/moc
  
  TAR	=	tar -cf
-diff -durN -x '*~' doxygen-1.3.5.orig/configure doxygen-1.3.5/configure
---- doxygen-1.3.5.orig/configure	2004-12-26 11:32:26.000000000 +0100
-+++ doxygen-1.3.5/configure	2004-12-26 11:49:01.730847328 +0100
-@@ -232,7 +232,7 @@
-     echo "check your Qt installation!"
+--- doxygen-1.3.8/configure.orig	2004-07-25 17:51:05.662304184 +0200
++++ doxygen-1.3.8/configure	2004-07-25 18:15:56.440671424 +0200
+@@ -260,8 +260,8 @@
+     echo "check the Qt installation instructions!"
      exit 2
    else
 -    if test ! -d "$QTDIR/lib"; then
+-      echo "QTDIR is set to $QTDIR, but library directory $QTDIR/lib does not exist!"
 +    if test ! -d "$QTDIR/lib64"; then
-       echo "QTDIR is set, but library directory does not exist!"
++      echo "QTDIR is set to $QTDIR, but library directory $QTDIR/lib64 does not exist!"
        exit 2
      fi
-@@ -245,7 +245,7 @@
+     if test ! -d "$QTDIR/include"; then
+@@ -273,8 +273,8 @@
        exit 2
      fi
      echo " headers $QTDIR/include,"
 -    echo "                     libraries $QTDIR/lib"  
+-    if test -n "`ls $QTDIR/lib/* | grep qt-mt`"; then
 +    echo "                     libraries $QTDIR/lib64"  
++    if test -n "`ls $QTDIR/lib64/* | grep qt-mt`"; then
+       f_thread=YES
+     fi
    fi
- fi
-    
 diff -durN -x '*~' doxygen-1.3.5.orig/tmake/doc/m-linux-gcc.html doxygen-1.3.5/tmake/doc/m-linux-gcc.html
 --- doxygen-1.3.5.orig/tmake/doc/m-linux-gcc.html	1998-07-07 13:09:07.000000000 +0200
 +++ doxygen-1.3.5/tmake/doc/m-linux-gcc.html	2004-12-26 11:45:29.542104920 +0100
