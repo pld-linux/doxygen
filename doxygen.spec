@@ -2,7 +2,7 @@ Summary:	Doxygen is the documentation system for C/C++
 Summary(pl):	System dokumentowania dla C/C++
 Summary(pt_BR):	Um sistema de documentação para C/C++
 Name:		doxygen
-Version:	1.2.13
+Version:	1.2.13.1
 Release:	1
 Epoch:		1
 License:	GPL
