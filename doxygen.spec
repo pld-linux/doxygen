@@ -10,7 +10,7 @@ Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
 Version:	1.4.0
-Release:	0.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
