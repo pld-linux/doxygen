@@ -1,4 +1,7 @@
-
+#
+# Conditional build:
+# _without_qt	- without doxywizard (qt-based)
+#
 Summary:	Doxygen is the documentation system for C/C++
 Summary(pl):	System dokumentowania dla C/C++
 Summary(pt_BR):	Um sistema de documentação para C/C++
@@ -13,16 +16,22 @@ Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 # Source0-md5:	d331ae38761ef9d8ce9f51988f01dcb8
 Patch0:		%{name}-system-libpng.patch
+Patch1:		%{name}-qtstyle.patch
+Patch2:		%{name}-qt-dirs.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
 BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
+%{!?_without_qt:BuildRequires:	qt-devel >= 2.1.0}
 BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-format-pdflatex
 BuildRequires:	tetex-plain-misc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# because of qt
+%define		_noautoreqdep	libGL.so.1 libGLU.so.1
 
 %description
 Doxygen is a documentation system for C, C++ and IDL. It can generate
@@ -84,7 +93,7 @@ Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Summary(pt_BR):	Wizard gráfico para o Doxygen
 Group:		X11/Applications
 Requires:	%{name} = %{version}
-Requires:	qt >= 2.2
+Requires:	qt >= 2.1.0
 
 %description doxywizard
 Doxywizard is a GUI front-end for creating and editing configuration
@@ -98,19 +107,21 @@ plików konfiguracyjnych u¿ywanych przez doxygen.
 Wizard gráfico para o Doxygen
 
 %prep
-%setup -q -n %{name}-%{version}
-%patch -p1
+%setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 rm -rf libpng
 
 %build
 export QTDIR=%{_prefix}
-## don't change it to %%configure!!!
+# don't change it to %%configure, not autoconf-generated!
 ./configure \
 	--prefix %{_prefix} \
 	--perl %{_bindir}/perl \
-	--install %{_bindir}/install
-#	--with-doxywizard
+	--install %{_bindir}/install \
+	%{!?_without_qt:--with-doxywizard}
 
 %{__make} \
 	CFLAGS="%{rpmcflags}" \
@@ -136,6 +147,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/doxytag
 %attr(755,root,root) %{_bindir}/doxysearch
 
-#%files doxywizard
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/doxywizard
+%if 0%{!?_without_qt:1}
+%files doxywizard
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/doxywizard
+%endif
