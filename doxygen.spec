@@ -4,7 +4,7 @@ Summary(pt_BR):	Um sistema de documentaГЦo para C/C++
 Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
-Version:	1.2.15
+Version:	1.2.18
 Release:	2
 Epoch:		1
 License:	GPL
@@ -110,9 +110,9 @@ export QTDIR=%{_prefix}
 	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
 
 %{__make} docs
-%{__make} ps
-mkdir ps
-mv -f latex/doxygen_manual.ps ps
+#%{__make} ps
+#mkdir ps
+#mv -f latex/doxygen_manual.ps ps
 
 %install
 rm -rf $RPM_BUILD_ROOT
