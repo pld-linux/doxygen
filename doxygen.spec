@@ -117,7 +117,7 @@ export QTDIR=%{_prefix}
 	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
 
 %{__make} docs
-#%{__make} pdf
+#%%{__make} pdf
 
 %install
 rm -rf $RPM_BUILD_ROOT
