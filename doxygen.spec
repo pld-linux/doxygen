@@ -15,9 +15,11 @@ Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}-%{relc}.src.tar.gz
 Patch0:		%{name}-system-libpng.patch
 URL:		http://www.doxygen.org/
+BuildRequires:	flex
 BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
+BuildRequires:	libstdc++-static
 BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-format-pdflatex
 BuildRequires:	tetex-plain-misc
