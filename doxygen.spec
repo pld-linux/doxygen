@@ -30,7 +30,11 @@ your way in large source distributions.
 
 %build
 export QTDIR=%{_prefix}
-%configure 
+## don't change it to %%configure!!!
+./configure \
+	--prefix %{_prefix} \
+	--perl %{_bindir}/perl \
+
 
 %{__make}
 %{__make} docs
