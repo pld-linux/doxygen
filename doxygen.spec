@@ -25,6 +25,7 @@ BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	python
 %{?with_qt:BuildRequires:	qt-devel >= 2.1.0}
 BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-format-pdflatex
