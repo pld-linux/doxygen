@@ -2,17 +2,26 @@ Summary:	Doxygen is the documentation system for C/C++
 Summary(pl):	System dokumentowania dla C/C++
 Summary(pt_BR):	Um sistema de documentação para C/C++
 Name:		doxygen
-Version:	1.2.13.1
-Release:	2
+Version:	1.2.14
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
-Group(de):	Entwicklung/Werkzeuge
+Group(cs):	Vývojové prostøedky/Nástroje
+Group(da):	Udvikling/Værktøj
+Group(de):	Entwicklung/Tools
 Group(es):	Desarrollo/Herramientas
 Group(fr):	Development/Outils
+Group(is):	Þróunartól/Tól
+Group(it):	Sviluppo/Tool
+Group(ja):	³«È¯/¥Ä¡¼¥ë
+Group(no):	Utvikling/Verktøy
 Group(pl):	Programowanie/Narzêdzia
 Group(pt):	Desenvolvimento/Ferramentas
 Group(ru):	òÁÚÒÁÂÏÔËÁ/éÎÓÔÒÕÍÅÎÔÙ
+Group(sl):	Razvoj/Orodja
+Group(sv):	Utveckling/Verktyg
+Group(uk):	òÏÚÒÏÂËÁ/¶ÎÓÔÒÕÍÅÎÔÉ
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 URL:		http://www.stack.nl/~dimitri/doxygen/
 BuildRequires:	qt-devel => 2.1
@@ -55,13 +64,23 @@ LaTeX) a partir de um conjunto de fontes documentados. A documentação
 Summary:	A GUI front-end for creating and editing configuration files
 Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Group:		X11/Applications
+Group(cs):	X11/Aplikace
+Group(da):	X11/Programmer
 Group(de):	X11/Applikationen
 Group(es):	X11/Aplicaciones
 Group(fr):	X11/Applications
+Group(id):	X11/Aplikasi
+Group(is):	X11/Forrit
+Group(it):	X11/Applicazioni
+Group(ja):	X11/¥¢¥×¥ê¥±¡¼¥·¥ç¥ó
+Group(no):	X11/Applikasjoner
 Group(pl):	X11/Aplikacje
 Group(pt_BR):	X11/Aplicações
 Group(pt):	X11/Aplicações
 Group(ru):	X11/ðÒÉÌÏÖÅÎÉÑ
+Group(sl):	X11/Programi
+Group(sv):	X11/Tillämpningar
+Group(uk):	X11/ðÒÉËÌÁÄÎ¦ ðÒÏÇÒÁÍÉ
 Requires:	%{name} = %{version}
 Requires:	qt >= 2.2 
 
