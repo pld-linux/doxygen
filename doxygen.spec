@@ -17,13 +17,8 @@ Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 Patch0:		%{name}-system-libpng.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
-BuildRequires:	ghostscript
-BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	tetex-format-latex
-BuildRequires:	tetex-format-pdflatex
-BuildRequires:	tetex-plain-misc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -119,7 +114,7 @@ export QTDIR=%{_prefix}
 	CXXFLAGS="%{rpmcflags} \
 	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
 
-%{__make} docs
+#%%{__make} docs
 #%%{__make} pdf
 
 %install
