@@ -3,13 +3,16 @@ Summary(pl):	System dokumentowania dla C/C++
 Summary(pt_BR):	Um sistema de documentação para C/C++
 Name:		doxygen
 Version:	1.2.13.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Group(de):	Entwicklung/Werkzeuge
+Group(es):	Desarrollo/Herramientas
 Group(fr):	Development/Outils
 Group(pl):	Programowanie/Narzêdzia
+Group(pt):	Desenvolvimento/Ferramentas
+Group(ru):	òÁÚÒÁÂÏÔËÁ/éÎÓÔÒÕÍÅÎÔÙ
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 URL:		http://www.stack.nl/~dimitri/doxygen/
 BuildRequires:	qt-devel => 2.1
@@ -54,9 +57,11 @@ Summary(pl):	GUI do tworzenia i edycji plików konfiguracyjnych
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(es):	X11/Aplicaciones
+Group(fr):	X11/Applications
 Group(pl):	X11/Aplikacje
 Group(pt_BR):	X11/Aplicações
 Group(pt):	X11/Aplicações
+Group(ru):	X11/ðÒÉÌÏÖÅÎÉÑ
 Requires:	%{name} = %{version}
 Requires:	qt >= 2.2 
 
