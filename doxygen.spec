@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without qt	# without doxywizard (qt-based)
+%bcond_without	qt	# without doxywizard (qt-based)
 #
 Summary:	Doxygen is the documentation system for C/C++
 Summary(es):	Doxygen es el sistema de documentación para C/C++
