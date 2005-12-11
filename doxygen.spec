@@ -19,6 +19,7 @@ Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 Patch0:		%{name}-system-libpng.patch
 Patch1:		%{name}-qt-dirs.patch
 Patch2:		%{name}-lib64.patch
+Patch3:		%{name}-gcc4.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
 BuildRequires:	ghostscript
@@ -27,9 +28,8 @@ BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	python
 %{?with_qt:BuildRequires:	qt-devel >= 2.1.0}
-BuildRequires:	tetex-format-latex
-BuildRequires:	tetex-format-pdflatex
-BuildRequires:	tetex-plain-misc
+BuildRequires:	tetex-format-latex >= 1:3.0-2
+BuildRequires:	tetex-format-pdflatex >= 1.3.0-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # because of qt
@@ -134,6 +134,7 @@ Wizard gráfico para o Doxygen.
 %if "%{_lib}" == "lib64"
 %patch2 -p1
 %endif
+%patch3 -p1
 
 rm -rf libpng src/unistd.h
 
@@ -146,7 +147,10 @@ export QTDIR=%{_prefix}
 	--install %{_bindir}/install \
 	%{?with_qt:--with-doxywizard}
 
-%{__make} QTDIR=%{_prefix} \
+%{__make} \
+	CC="%{__cc}" \
+	CXX="%{__cxx}" \
+	QTDIR=%{_prefix} \
 	CFLAGS="%{rpmcflags}" \
 	CXXFLAGS="%{rpmcflags} \
 	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
