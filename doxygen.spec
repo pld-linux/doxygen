@@ -29,7 +29,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	python
 %{?with_qt:BuildRequires:	qt-devel >= 2.1.0}
 BuildRequires:	tetex-format-latex >= 1:3.0-2
-BuildRequires:	tetex-format-pdflatex >= 1.3.0-2
+BuildRequires:	tetex-format-pdflatex >= 1:3.0-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # because of qt
