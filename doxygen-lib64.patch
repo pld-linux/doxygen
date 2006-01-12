@@ -10,31 +10,6 @@ diff -ur doxygen-1.4.2/addon/doxywizard/Makefile.doxywizard doxygen-1.4.2.new/ad
  MOC	=	/usr/qt/3/bin/moc
  
  TAR	=	tar -cf
-diff -ur doxygen-1.4.2/configure doxygen-1.4.2.new/configure
---- doxygen-1.4.2/configure	2005-01-03 20:23:19.000000000 +0100
-+++ doxygen-1.4.2.new/configure	2005-03-28 19:29:30.973525456 +0200
-@@ -247,8 +247,8 @@
-     echo "check the Qt installation instructions!"
-     exit 2
-   else
--    if test ! -d "$QTDIR/lib"; then
--      echo "QTDIR is set to $QTDIR, but library directory $QTDIR/lib does not exist!"
-+    if test ! -d "$QTDIR/lib64"; then
-+      echo "QTDIR is set to $QTDIR, but library directory $QTDIR/lib64 does not exist!"
-       exit 2
-     fi
-     if test ! -d "$QTDIR/include"; then
-@@ -260,8 +260,8 @@
-       exit 2
-     fi
-     echo " headers $QTDIR/include,"
--    echo "                     libraries $QTDIR/lib"  
--    if test -n "`ls $QTDIR/lib/* | grep qt-mt`"; then
-+    echo "                     libraries $QTDIR/lib64"  
-+    if test -n "`ls $QTDIR/lib64/* | grep qt-mt`"; then
-       f_thread=YES
-     fi
-   fi
 diff -ur doxygen-1.4.2/tmake/doc/m-linux-gcc.html doxygen-1.4.2.new/tmake/doc/m-linux-gcc.html
 --- doxygen-1.4.2/tmake/doc/m-linux-gcc.html	2003-12-14 23:00:58.000000000 +0100
 +++ doxygen-1.4.2.new/tmake/doc/m-linux-gcc.html	2005-03-28 19:29:53.126157744 +0200
@@ -43,7 +18,7 @@ diff -ur doxygen-1.4.2/tmake/doc/m-linux-gcc.html doxygen-1.4.2.new/tmake/doc/m-
  LINK	=	g++
  LFLAGS	=	
 -LIBS	=	-L$(QTDIR)/lib -lqt -L/usr/X11R6/lib -lX11
-+LIBS	=	-L$(QTDIR)/lib64 -lqt -L/usr/X11R6/lib64 -lX11
++LIBS	=	-L$(QTDIR)/lib64 -lqt-mt -L/usr/X11R6/lib64 -lX11
  MOC	=	moc
  
  ####### Files
