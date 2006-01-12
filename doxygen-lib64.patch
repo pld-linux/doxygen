@@ -1,4 +1,3 @@
-diff -ur doxygen-1.4.2/addon/doxywizard/Makefile.doxywizard doxygen-1.4.2.new/addon/doxywizard/Makefile.doxywizard
 --- doxygen-1.4.2/addon/doxywizard/Makefile.doxywizard	2005-03-28 10:38:39.000000000 +0200
 +++ doxygen-1.4.2.new/addon/doxywizard/Makefile.doxywizard	2005-03-28 19:28:46.000362416 +0200
 @@ -24,7 +24,7 @@
@@ -10,7 +9,6 @@ diff -ur doxygen-1.4.2/addon/doxywizard/Makefile.doxywizard doxygen-1.4.2.new/ad
  MOC	=	/usr/qt/3/bin/moc
  
  TAR	=	tar -cf
-diff -ur doxygen-1.4.2/tmake/doc/m-linux-gcc.html doxygen-1.4.2.new/tmake/doc/m-linux-gcc.html
 --- doxygen-1.4.2/tmake/doc/m-linux-gcc.html	2003-12-14 23:00:58.000000000 +0100
 +++ doxygen-1.4.2.new/tmake/doc/m-linux-gcc.html	2005-03-28 19:29:53.126157744 +0200
 @@ -19,7 +19,7 @@
@@ -18,10 +16,21 @@ diff -ur doxygen-1.4.2/tmake/doc/m-linux-gcc.html doxygen-1.4.2.new/tmake/doc/m-
  LINK	=	g++
  LFLAGS	=	
 -LIBS	=	-L$(QTDIR)/lib -lqt -L/usr/X11R6/lib -lX11
-+LIBS	=	-L$(QTDIR)/lib64 -lqt-mt -L/usr/X11R6/lib64 -lX11
++LIBS	=	-L$(QTDIR)/lib64 -lqt -L/usr/X11R6/lib64 -lX11
  MOC	=	moc
  
  ####### Files
+--- doxygen-1.4.6/configure.orig	2006-01-12 20:39:52.000000000 +0100
++++ doxygen-1.4.6/configure	2006-01-12 20:43:06.000000000 +0100
+@@ -243,7 +243,7 @@
+ 
+ #- check for qt --------------------------------------------------------------
+  
+-LIBDIR=lib
++LIBDIR=lib64
+ if test "$f_wizard" = YES; then
+   if test -z "$QTDIR"; then
+     echo "  QTDIR environment variable not set!"
 --- doxygen-1.4.2/tmake/lib/linux-g++/tmake.conf.orig	2005-03-28 21:38:45.428533235 +0200
 +++ doxygen-1.4.2/tmake/lib/linux-g++/tmake.conf	2005-03-28 21:39:29.538941670 +0200
 @@ -28,11 +28,11 @@
