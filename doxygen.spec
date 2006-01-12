@@ -10,7 +10,7 @@ Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
 Version:	1.4.6
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
@@ -150,10 +150,9 @@ export QTDIR=%{_prefix}
 %{__make} \
 	CC="%{__cc}" \
 	CXX="%{__cxx}" \
-	QTDIR=%{_prefix} \
+	QTDIR="%{_prefix}" \
 	CFLAGS="%{rpmcflags}" \
-	CXXFLAGS="%{rpmcflags} \
-	-DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
+	CXXFLAGS="%{rpmcxxflags} -DQT_NO_CODECS -DQT_LITE_UNICODE -fno-rtti -fno-exceptions"
 
 %{__make} docs
 #%%{__make} pdf
