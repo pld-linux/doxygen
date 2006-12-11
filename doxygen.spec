@@ -10,7 +10,7 @@ Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
 Version:	1.5.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
@@ -19,6 +19,7 @@ Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 Patch0:		%{name}-system-libpng.patch
 Patch1:		%{name}-qt-dirs.patch
 Patch2:		%{name}-lib64.patch
+Patch3:		%{name}-qt-thread.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
 BuildRequires:	ghostscript
@@ -133,6 +134,7 @@ Wizard grАfico para o Doxygen.
 %if "%{_lib}" == "lib64"
 %patch2 -p1
 %endif
+%patch3 -p1
 
 rm -rf libpng src/unistd.h
 
@@ -141,7 +143,7 @@ export QTDIR=%{_prefix}
 # don't change it to %%configure, not autoconf-generated!
 ./configure \
 	--prefix %{_prefix} \
-	--perl %{_bindir}/perl \
+	--perl %{__perl} \
 	--install %{_bindir}/install \
 	%{?with_qt:--with-doxywizard}
 
