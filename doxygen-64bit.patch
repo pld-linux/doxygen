@@ -1,0 +1,11 @@
+--- doxygen-1.5.1/libmd5/md5_loc.h.orig	2003-11-05 21:39:05.000000000 +0100
++++ doxygen-1.5.1/libmd5/md5_loc.h	2006-12-11 21:05:00.135077500 +0100
+@@ -14,7 +14,7 @@
+ typedef unsigned short int UINT2;
+ 
+ /* UINT4 defines a four byte word */
+-typedef unsigned long int UINT4;
++typedef unsigned int UINT4;
+ 
+ #ifndef NULL_PTR
+ #define NULL_PTR ((POINTER)0)
