@@ -10,7 +10,7 @@ Summary(ru):	Система документирования для C та C++
 Summary(uk):	Система документування для C та C++
 Name:		doxygen
 Version:	1.5.1
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
@@ -20,6 +20,7 @@ Patch0:		%{name}-system-libpng.patch
 Patch1:		%{name}-qt-dirs.patch
 Patch2:		%{name}-lib64.patch
 Patch3:		%{name}-qt-thread.patch
+Patch4:		%{name}-64bit.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	flex
 BuildRequires:	ghostscript
