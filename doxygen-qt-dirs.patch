@@ -20,3 +20,33 @@
  TMAKE_LIBDIR_QT		= $(QTDIR)/lib64
  TMAKE_INCDIR_OPENGL	= /usr/X11R6/include
  TMAKE_LIBDIR_OPENGL	= /usr/X11R6/lib64
+--- doxygen-1.5.1/configure.orig	2006-12-11 21:47:53.000000000 +0100
++++ doxygen-1.5.1/configure	2006-12-11 21:53:56.546591750 +0100
+@@ -259,7 +259,7 @@
+     echo "  QTDIR environment variable not set!"
+     echo -n "  Checking for Qt..."
+     for d in /usr/{lib,share,qt}/{qt-3,qt3,qt,qt*,3}; do
+-      if test -d "$d/lib" -a -d "$d/include" -a -x "$d/bin/moc"; then
++      if test -d "$d/lib" -a -d "$d/include/qt" -a -x "$d/bin/moc"; then
+         QTDIR=$d
+       fi
+     done
+@@ -281,15 +281,15 @@
+       fi
+       LIBDIR=lib64
+     fi
+-    if test ! -d "$QTDIR/include"; then
+-      echo "QTDIR is set to $QTDIR, but include directory $QTDIR/include does not exist!"
++    if test ! -d "$QTDIR/include/qt"; then
++      echo "QTDIR is set to $QTDIR, but include directory $QTDIR/include/qt does not exist!"
+       exit 2
+     fi
+     if test ! -x "$QTDIR/bin/moc"; then
+       echo "QTDIR is set to $QTDIR, but the moc tool could not be found in $QTDIR/bin!"
+       exit 2
+     fi
+-    echo " headers $QTDIR/include,"
++    echo " headers $QTDIR/include/qt,"
+     echo "                     libraries $QTDIR/$LIBDIR"  
+     if test -f $QTDIR/$LIBDIR/libqt-mt.la; then
+       f_thread=YES
