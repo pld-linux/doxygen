@@ -3,11 +3,11 @@
 %bcond_without	qt	# without doxywizard (qt-based)
 #
 Summary:	Doxygen is the documentation system for C/C++
-Summary(es):	Doxygen es el sistema de documentaciÛn para C/C++
-Summary(pl):	System dokumentowania dla C/C++
-Summary(pt_BR):	Um sistema de documentaÁ„o para C/C++
-Summary(ru):	Û…”‘≈Õ¡ ƒœÀ’Õ≈Œ‘…“œ◊¡Œ…— ƒÃ— C ‘¡ C++
-Summary(uk):	Û…”‘≈Õ¡ ƒœÀ’Õ≈Œ‘’◊¡ŒŒ— ƒÃ— C ‘¡ C++
+Summary(es.UTF-8):   Doxygen es el sistema de documentaci√≥n para C/C++
+Summary(pl.UTF-8):   System dokumentowania dla C/C++
+Summary(pt_BR.UTF-8):   Um sistema de documenta√ß√£o para C/C++
+Summary(ru.UTF-8):   –°–∏—Å—Ç–µ–º–∞ –¥–æ–∫—É–º–µ–Ω—Ç–∏—Ä–æ–≤–∞–Ω–∏—è –¥–ª—è C —Ç–∞ C++
+Summary(uk.UTF-8):   –°–∏—Å—Ç–µ–º–∞ –¥–æ–∫—É–º–µ–Ω—Ç—É–≤–∞–Ω–Ω—è –¥–ª—è C —Ç–∞ C++
 Name:		doxygen
 Version:	1.5.1
 Release:	5
@@ -48,67 +48,67 @@ Doxygen can also be configured to extract the code-structure from
 undocumented source files. This can be very useful to quickly find
 your way in large source distributions.
 
-%description -l es
-Doxygen es un sistema de documentaciÛn para C, C++ e IDL. Es capaz de
+%description -l es.UTF-8
+Doxygen es un sistema de documentaci√≥n para C, C++ e IDL. Es capaz de
 generar un navegador on-line entre clases (en HTML) y-o un manual
 off-line de referencia (en LaTeX) a partir de un conjunto de ficheros
-de cÛdigo fuente documentados. TambiÈn hay soporte para generar
-p·ginas man y para convertir la generada salida an Postscript, PDF con
-hiperenlaces o HTML comprimido. La documentaciÛn se extrae
+de c√≥digo fuente documentados. Tambi√©n hay soporte para generar
+p√°ginas man y para convertir la generada salida an Postscript, PDF con
+hiperenlaces o HTML comprimido. La documentaci√≥n se extrae
 directamente de los fuentes.
 
-Doxygen puede tambiÈn ser configurado a extraer la estructura del
-cÛdigo de cÛdigo fuente que carece de documentaciÛn. Eso puede ser muy
-˙til para orientarse r·pidamente en distribuciones grandes de cÛdigo
+Doxygen puede tambi√©n ser configurado a extraer la estructura del
+c√≥digo de c√≥digo fuente que carece de documentaci√≥n. Eso puede ser muy
+√∫til para orientarse r√°pidamente en distribuciones grandes de c√≥digo
 fuente.
 
-%description -l pl
-Doxygen to system dokumentowania dla C, C++ i IDL. Moøe generowaÊ
-dokumentacjÍ klas on-line (w HTML-u) lub podrÍcznik off-line (w
-LaTeXu) z zestawu udokumentowanych plikÛw ºrÛd≥owych. Ma takøe
-moøliwo∂Ê generowania stron man i konwersji na Postscript, PDF z
-hiper≥±czami oraz skompresowany HTML. Dokumentacja jest wyci±gana
-bezpo∂rednio ze ºrÛde≥.
+%description -l pl.UTF-8
+Doxygen to system dokumentowania dla C, C++ i IDL. Mo≈ºe generowaƒá
+dokumentacjƒô klas on-line (w HTML-u) lub podrƒôcznik off-line (w
+LaTeXu) z zestawu udokumentowanych plik√≥w ≈∫r√≥d≈Çowych. Ma tak≈ºe
+mo≈ºliwo≈õƒá generowania stron man i konwersji na Postscript, PDF z
+hiper≈ÇƒÖczami oraz skompresowany HTML. Dokumentacja jest wyciƒÖgana
+bezpo≈õrednio ze ≈∫r√≥de≈Ç.
 
-Doxygen moøe byÊ skonfigurowany takøe do wyci±gania struktury kodu z
-nieudokumentowanych plikÛw ºrÛd≥owych. Moøe byÊ to przydatne do
-szybkiego odnalezienia siÍ w duøych ºrÛd≥ach.
+Doxygen mo≈ºe byƒá skonfigurowany tak≈ºe do wyciƒÖgania struktury kodu z
+nieudokumentowanych plik√≥w ≈∫r√≥d≈Çowych. Mo≈ºe byƒá to przydatne do
+szybkiego odnalezienia siƒô w du≈ºych ≈∫r√≥d≈Çach.
 
-%description -l pt_BR
-Doxygen È uma sistema de documentaÁ„o para C e C++ que gera um class
+%description -l pt_BR.UTF-8
+Doxygen √© uma sistema de documenta√ß√£o para C e C++ que gera um class
 browser on-line (em HTML) e/ou um manual de referencia off-line (em
-LaTeX) a partir de um conjunto de fontes documentados. A documentaÁ„o
-È extraida diretamente a partir dos fontes.
+LaTeX) a partir de um conjunto de fontes documentados. A documenta√ß√£o
+√© extraida diretamente a partir dos fontes.
 
-%description -l ru
-Doxygen - ‹‘œ ”…”‘≈Õ¡ ƒœÀ’Õ≈Œ‘…“œ◊¡Œ…— ƒÃ— C, C++ … IDL. ÔŒ¡ Õœ÷≈‘
-”œ⁄ƒ¡‘ÿ œŒÃ¡ Œœ◊Ÿ  ¬“œ’⁄≈“ ÀÃ¡””œ◊ (◊ HTML) …/…Ã… œ∆∆Ã¡ Œœ◊Ÿ 
-”–“¡◊œﬁŒ…À (◊ LaTeX) …⁄ Œ¡¬œ“¡ ƒœÀ’Õ≈Œ‘…“œ◊¡ŒŒŸ» ∆¡ Ãœ◊. Â”‘ÿ ‘¡À÷≈
-–œƒƒ≈“÷À¡ ”œ⁄ƒ¡Œ…— man-”‘“¡Œ…√ … ÀœŒ◊≈“‘¡√…… ”«≈Œ≈“…“œ◊¡ŒŒœ«œ ◊Ÿ◊œƒ¡ ◊
-Postscript, PDF ” «…–≈“””ŸÃÀ¡Õ… … ÀœÕ–“≈””…“œ◊¡ŒŒŸ  HTML. ‰œÀ’Õ≈Œ‘¡√…—
-…⁄◊Ã≈À¡≈‘”— Œ≈–œ”“≈ƒ”‘◊≈ŒŒœ …⁄ …”»œƒŒŸ» ∆¡ Ãœ◊.
+%description -l ru.UTF-8
+Doxygen - —ç—Ç–æ —Å–∏—Å—Ç–µ–º–∞ –¥–æ–∫—É–º–µ–Ω—Ç–∏—Ä–æ–≤–∞–Ω–∏—è –¥–ª—è C, C++ –∏ IDL. –û–Ω–∞ –º–æ–∂–µ—Ç
+—Å–æ–∑–¥–∞—Ç—å –æ–Ω–ª–∞–π–Ω–æ–≤—ã–π –±—Ä–æ—É–∑–µ—Ä –∫–ª–∞—Å—Å–æ–≤ (–≤ HTML) –∏/–∏–ª–∏ –æ—Ñ—Ñ–ª–∞–π–Ω–æ–≤—ã–π
+—Å–ø—Ä–∞–≤–æ—á–Ω–∏–∫ (–≤ LaTeX) –∏–∑ –Ω–∞–±–æ—Ä–∞ –¥–æ–∫—É–º–µ–Ω—Ç–∏—Ä–æ–≤–∞–Ω–Ω—ã—Ö —Ñ–∞–π–ª–æ–≤. –ï—Å—Ç—å —Ç–∞–∫–∂–µ
+–ø–æ–¥–¥–µ—Ä–∂–∫–∞ —Å–æ–∑–¥–∞–Ω–∏—è man-—Å—Ç—Ä–∞–Ω–∏—Ü –∏ –∫–æ–Ω–≤–µ—Ä—Ç–∞—Ü–∏–∏ —Å–≥–µ–Ω–µ—Ä–∏—Ä–æ–≤–∞–Ω–Ω–æ–≥–æ –≤—ã–≤–æ–¥–∞ –≤
+Postscript, PDF —Å –≥–∏–ø–µ—Ä—Å—Å—ã–ª–∫–∞–º–∏ –∏ –∫–æ–º–ø—Ä–µ—Å—Å–∏—Ä–æ–≤–∞–Ω–Ω—ã–π HTML. –î–æ–∫—É–º–µ–Ω—Ç–∞—Ü–∏—è
+–∏–∑–≤–ª–µ–∫–∞–µ—Ç—Å—è –Ω–µ–ø–æ—Å—Ä–µ–¥—Å—Ç–≤–µ–Ω–Ω–æ –∏–∑ –∏—Å—Ö–æ–¥–Ω—ã—Ö —Ñ–∞–π–ª–æ–≤.
 
-Doxygen Õœ÷Œœ ‘¡À÷≈ ”ÀœŒ∆…«’“…“œ◊¡‘ÿ ƒÃ— –œÃ’ﬁ≈Œ…— ”‘“’À‘’“Ÿ Àœƒ¡ …⁄
-Œ≈ÃœÀ’Õ≈Œ‘…“œ◊¡ŒŒŸ» …”»œƒŒŸ» ∆¡ Ãœ◊. ¸‘œ Õœ÷≈‘ ¬Ÿ‘ÿ œﬁ≈Œÿ –œÃ≈⁄ŒŸÕ ƒÃ—
-‘œ«œ, ﬁ‘œ¬Ÿ ¬Ÿ”‘œ “¡⁄œ¬“¡‘ÿ”— ◊ ¬œÃÿ€œÕ –“œ≈À‘≈.
+Doxygen –º–æ–∂–Ω–æ —Ç–∞–∫–∂–µ —Å–∫–æ–Ω—Ñ–∏–≥—É—Ä–∏—Ä–æ–≤–∞—Ç—å –¥–ª—è –ø–æ–ª—É—á–µ–Ω–∏—è —Å—Ç—Ä—É–∫—Ç—É—Ä—ã –∫–æ–¥–∞ –∏–∑
+–Ω–µ–ª–æ–∫—É–º–µ–Ω—Ç–∏—Ä–æ–≤–∞–Ω–Ω—ã—Ö –∏—Å—Ö–æ–¥–Ω—ã—Ö —Ñ–∞–π–ª–æ–≤. –≠—Ç–æ –º–æ–∂–µ—Ç –±—ã—Ç—å –æ—á–µ–Ω—å –ø–æ–ª–µ–∑–Ω—ã–º –¥–ª—è
+—Ç–æ–≥–æ, —á—Ç–æ–±—ã –±—ã—Å—Ç–æ —Ä–∞–∑–æ–±—Ä–∞—Ç—å—Å—è –≤ –±–æ–ª—å—à–æ–º –ø—Ä–æ–µ–∫—Ç–µ.
 
-%description -l uk
-Doxygen - √≈ ”…”‘≈Õ¡ ƒœÀ’Õ≈Œ‘’◊¡ŒŒ— ƒÃ— C, C++ ‘¡ IDL. ˜œŒ¡ Õœ÷≈
-”‘◊œ“…‘… œŒÃ¡ Œœ◊…  ¬“œ’⁄≈“ ÀÃ¡”¶◊ (◊ HTML) ‘¡/ﬁ… œ∆∆Ã¡ Œœ◊…  ƒœ◊¶ƒŒ…À
-(◊ LaTeX) ⁄ Œ¡¬œ“’ ƒœÀ’Õ≈Œ‘œ◊¡Œ…» ◊…»¶ƒŒ…» ∆¡ Ã¶◊. ¥ ‘¡Àœ÷ –¶ƒ‘“…ÕÀ¡
-ƒÃ— ”‘◊œ“≈ŒŒ— man-”‘œ“¶ŒœÀ ‘¡ ÀœŒ◊≈“‘¡√¶ß ⁄«≈Œ≈“œ◊¡Œœ«œ ◊…◊œƒ’ ◊
-Postscript, PDF ⁄ «¶–≈“Ã¶ŒÀ¡Õ… ‘¡ ÀœÕ–“≈”œ◊¡Œ…  HTML. ‰œÀ’Õ≈Œ‘¡√¶—
-◊…ƒœ¬’◊¡§‘ÿ”— ¬≈⁄–œ”≈“ƒŒÿœ ⁄ ◊…»¶ƒŒ…» ∆¡ Ã¶◊.
+%description -l uk.UTF-8
+Doxygen - —Ü–µ —Å–∏—Å—Ç–µ–º–∞ –¥–æ–∫—É–º–µ–Ω—Ç—É–≤–∞–Ω–Ω—è –¥–ª—è C, C++ —Ç–∞ IDL. –í–æ–Ω–∞ –º–æ–∂–µ
+—Å—Ç–≤–æ—Ä–∏—Ç–∏ –æ–Ω–ª–∞–π–Ω–æ–≤–∏–π –±—Ä–æ—É–∑–µ—Ä –∫–ª–∞—Å—ñ–≤ (–≤ HTML) —Ç–∞/—á–∏ –æ—Ñ—Ñ–ª–∞–π–Ω–æ–≤–∏–π –¥–æ–≤—ñ–¥–Ω–∏–∫
+(–≤ LaTeX) –∑ –Ω–∞–±–æ—Ä—É –¥–æ–∫—É–º–µ–Ω—Ç–æ–≤–∞–Ω–∏—Ö –≤–∏—Ö—ñ–¥–Ω–∏—Ö —Ñ–∞–π–ª—ñ–≤. –Ñ —Ç–∞–∫–æ–∂ –ø—ñ–¥—Ç—Ä–∏–º–∫–∞
+–¥–ª—è —Å—Ç–≤–æ—Ä–µ–Ω–Ω—è man-—Å—Ç–æ—Ä—ñ–Ω–æ–∫ —Ç–∞ –∫–æ–Ω–≤–µ—Ä—Ç–∞—Ü—ñ—ó –∑–≥–µ–Ω–µ—Ä–æ–≤–∞–Ω–æ–≥–æ –≤–∏–≤–æ–¥—É –≤
+Postscript, PDF –∑ –≥—ñ–ø–µ—Ä–ª—ñ–Ω–∫–∞–º–∏ —Ç–∞ –∫–æ–º–ø—Ä–µ—Å–æ–≤–∞–Ω–∏–π HTML. –î–æ–∫—É–º–µ–Ω—Ç–∞—Ü—ñ—è
+–≤–∏–¥–æ–±—É–≤–∞—î—Ç—å—Å—è –±–µ–∑–ø–æ—Å–µ—Ä–¥–Ω—å–æ –∑ –≤–∏—Ö—ñ–¥–Ω–∏—Ö —Ñ–∞–π–ª—ñ–≤.
 
-Doxygen Õœ÷Œ¡ ‘¡Àœ÷ ⁄ÀœŒ∆¶«’“’◊¡‘… ƒÃ— œ‘“…Õ¡ŒŒ— ”‘“’À‘’“… Àœƒ’ ⁄
-Œ≈ƒœÀ’Õ≈Œ‘œ◊¡Œ…» ◊…»¶ƒŒ…» ∆¡ Ã¶◊. „≈ Õœ÷≈ ¬’‘… ƒ’÷≈ Àœ“…”Œ…Õ ƒÃ— ‘œ«œ,
-›œ¬ €◊…ƒÀœ “œ⁄¶¬“¡‘…”— ’ ◊≈Ã…ÀœÕ’ –“œ≈À‘¶.
+Doxygen –º–æ–∂–Ω–∞ —Ç–∞–∫–æ–∂ –∑–∫–æ–Ω—Ñ—ñ–≥—É—Ä—É–≤–∞—Ç–∏ –¥–ª—è –æ—Ç—Ä–∏–º–∞–Ω–Ω—è —Å—Ç—Ä—É–∫—Ç—É—Ä–∏ –∫–æ–¥—É –∑
+–Ω–µ–¥–æ–∫—É–º–µ–Ω—Ç–æ–≤–∞–Ω–∏—Ö –≤–∏—Ö—ñ–¥–Ω–∏—Ö —Ñ–∞–π–ª—ñ–≤. –¶–µ –º–æ–∂–µ –±—É—Ç–∏ –¥—É–∂–µ –∫–æ—Ä–∏—Å–Ω–∏–º –¥–ª—è —Ç–æ–≥–æ,
+—â–æ–± —à–≤–∏–¥–∫–æ —Ä–æ–∑—ñ–±—Ä–∞—Ç–∏—Å—è —É –≤–µ–ª–∏–∫–æ–º—É –ø—Ä–æ–µ–∫—Ç—ñ.
 
 %package doxywizard
 Summary:	A GUI front-end for creating and editing configuration files
-Summary(es):	Un front-end GUI para crear y editar ficheros de configuraciÛn
-Summary(pl):	GUI do tworzenia i edycji plikÛw konfiguracyjnych
-Summary(pt_BR):	Wizard gr·fico para o Doxygen
+Summary(es.UTF-8):   Un front-end GUI para crear y editar ficheros de configuraci√≥n
+Summary(pl.UTF-8):   GUI do tworzenia i edycji plik√≥w konfiguracyjnych
+Summary(pt_BR.UTF-8):   Wizard gr√°fico para o Doxygen
 Group:		X11/Applications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	qt >= 2.1.0
@@ -117,16 +117,16 @@ Requires:	qt >= 2.1.0
 Doxywizard is a GUI front-end for creating and editing configuration
 files that are used by doxygen.
 
-%description doxywizard -l es
+%description doxywizard -l es.UTF-8
 Doxywizard es un front-end GUI para crear y editar los ficheros de
-configuraciÛn que son usados por doxygen.
+configuraci√≥n que son usados por doxygen.
 
-%description doxywizard -l pl
+%description doxywizard -l pl.UTF-8
 Doxywizard to frontend z graficznym interfejsem do tworzenia i edycji
-plikÛw konfiguracyjnych uøywanych przez doxygen.
+plik√≥w konfiguracyjnych u≈ºywanych przez doxygen.
 
-%description doxywizard -l pt_BR
-Wizard gr·fico para o Doxygen.
+%description doxywizard -l pt_BR.UTF-8
+Wizard gr√°fico para o Doxygen.
 
 %prep
 %setup -q
