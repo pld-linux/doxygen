@@ -3,11 +3,11 @@
 %bcond_without	qt	# without doxywizard (qt-based)
 #
 Summary:	Doxygen is the documentation system for C/C++
-Summary(es.UTF-8):   Doxygen es el sistema de documentación para C/C++
-Summary(pl.UTF-8):   System dokumentowania dla C/C++
-Summary(pt_BR.UTF-8):   Um sistema de documentação para C/C++
-Summary(ru.UTF-8):   Система документирования для C та C++
-Summary(uk.UTF-8):   Система документування для C та C++
+Summary(es.UTF-8):	Doxygen es el sistema de documentación para C/C++
+Summary(pl.UTF-8):	System dokumentowania dla C/C++
+Summary(pt_BR.UTF-8):	Um sistema de documentação para C/C++
+Summary(ru.UTF-8):	Система документирования для C та C++
+Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
 Version:	1.5.1
 Release:	5
@@ -106,9 +106,9 @@ Doxygen можна також зконфігурувати для отриман
 
 %package doxywizard
 Summary:	A GUI front-end for creating and editing configuration files
-Summary(es.UTF-8):   Un front-end GUI para crear y editar ficheros de configuración
-Summary(pl.UTF-8):   GUI do tworzenia i edycji plików konfiguracyjnych
-Summary(pt_BR.UTF-8):   Wizard gráfico para o Doxygen
+Summary(es.UTF-8):	Un front-end GUI para crear y editar ficheros de configuración
+Summary(pl.UTF-8):	GUI do tworzenia i edycji plików konfiguracyjnych
+Summary(pt_BR.UTF-8):	Wizard gráfico para o Doxygen
 Group:		X11/Applications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	qt >= 2.1.0
