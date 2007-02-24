@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	Система документирования для C та
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
 Version:	1.5.1
-Release:	5
+Release:	6
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
@@ -137,7 +137,7 @@ Wizard gráfico para o Doxygen.
 %endif
 %patch3 -p1
 
-rm -rf libpng src/unistd.h
+rm -rf libpng src/unistd.h addon/doxywizard/Makefile.doxywizard
 
 %build
 export QTDIR=%{_prefix}
