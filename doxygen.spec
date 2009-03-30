@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	Система документирования для C та
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
 Version:	1.5.7.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
@@ -30,8 +30,8 @@ BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	python
 %{?with_qt:BuildRequires:	qt-devel >= 2.1.0}
-BuildRequires:	tetex-format-latex >= 1:3.0-2
-BuildRequires:	tetex-format-pdflatex >= 1:3.0-2
+BuildRequires:	texlive-latex
+BuildRequires:	texlive-pdftex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # because of qt
