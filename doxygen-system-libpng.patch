@@ -33,7 +33,7 @@
  
  #define ALL_STATIC
 -#include <../libpng/png.h>
-+#include <libpng/png.h>
++#include <png.h>
  #include <stdio.h>
  #include <stdlib.h>
  #include <string.h>
