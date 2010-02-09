@@ -139,7 +139,6 @@ Wizard gráfico para o Doxygen.
 rm -rf libpng src/unistd.h addon/doxywizard/Makefile.doxywizard
 
 %build
-export QTDIR=%{_prefix}
 # don't change it to %%configure, not autoconf-generated!
 ./configure \
 	--prefix %{_prefix} \
@@ -160,9 +159,7 @@ export QTDIR=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-
-install bin/doxy* $RPM_BUILD_ROOT%{_bindir}
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
