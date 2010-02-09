@@ -28,7 +28,7 @@ BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	python
+BuildRequires:	perl-base
 %{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
 %{?with_qt:BuildRequires:	qt4-build >= 4.3}
 BuildRequires:	texlive-latex
