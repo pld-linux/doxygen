@@ -16,9 +16,7 @@ License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 # Source0-md5:	70260101ef60952cb99484700241c99e
-Patch1:		%{name}-qt-dirs.patch
-Patch2:		%{name}-lib64.patch
-Patch4:		%{name}-64bit.patch
+Patch0:		%{name}-qt-dirs.patch
 URL:		http://www.doxygen.org/
 %{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
 %{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
@@ -29,8 +27,8 @@ BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-base
-%{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
 %{?with_qt:BuildRequires:	qt4-build >= 4.3}
+%{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
 BuildRequires:	texlive-latex
 BuildRequires:	texlive-pdftex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -131,7 +129,7 @@ Wizard gráfico para o Doxygen.
 
 %prep
 %setup -q
-%patch1 -p1
+%patch0 -p1
 
 rm -rf libpng src/unistd.h addon/doxywizard/Makefile.doxywizard
 
@@ -149,7 +147,8 @@ rm -rf libpng src/unistd.h addon/doxywizard/Makefile.doxywizard
 	LINK="%{__cxx}" \
 	QTDIR="%{_prefix}" \
 	CFLAGS="%{rpmcflags}" \
-	CXXFLAGS="%{rpmcxxflags} -DQT_NO_CODECS -DQT_LITE_UNICODE -DNODEBUG -fno-rtti -fno-exceptions"
+	CXXFLAGS="%{rpmcxxflags} -DQT_NO_CODECS -DQT_LITE_UNICODE -DNODEBUG -fno-rtti -fno-exceptions" \
+	LFLAGS="%{rpmldflags}"
 
 %{__make} docs
 #%%{__make} pdf
