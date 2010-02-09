@@ -132,9 +132,6 @@ Wizard gráfico para o Doxygen.
 %prep
 %setup -q
 %patch1 -p1
-%if "%{_lib}" == "lib64"
-%patch2 -p1
-%endif
 
 rm -rf libpng src/unistd.h addon/doxywizard/Makefile.doxywizard
 
