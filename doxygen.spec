@@ -169,9 +169,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc html examples README
 %attr(755,root,root) %{_bindir}/doxygen
 %attr(755,root,root) %{_bindir}/doxytag
+%{_mandir}/man1/doxygen.1*
+%{_mandir}/man1/doxytag.1*
 
 %if %{with qt}
 %files doxywizard
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/doxywizard
+%{_mandir}/man1/doxywizard.1*
 %endif
