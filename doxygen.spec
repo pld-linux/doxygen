@@ -20,6 +20,8 @@ Patch1:		%{name}-qt-dirs.patch
 Patch2:		%{name}-lib64.patch
 Patch4:		%{name}-64bit.patch
 URL:		http://www.doxygen.org/
+%{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
+%{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	ghostscript
@@ -27,7 +29,8 @@ BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	python
-%{?with_qt:BuildRequires:	qt-devel >= 2.1.0}
+%{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
+%{?with_qt:BuildRequires:	qt4-build >= 4.3}
 BuildRequires:	texlive-latex
 BuildRequires:	texlive-pdftex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -110,7 +113,6 @@ Summary(pl.UTF-8):	GUI do tworzenia i edycji plików konfiguracyjnych
 Summary(pt_BR.UTF-8):	Wizard gráfico para o Doxygen
 Group:		X11/Applications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	qt >= 2.1.0
 
 %description doxywizard
 Doxywizard is a GUI front-end for creating and editing configuration
