@@ -1,52 +1,64 @@
---- doxygen-1.3.8/tmake/lib/linux-g++/tmake.conf~	2002-08-01 09:29:09.000000000 +0200
-+++ doxygen-1.3.8/tmake/lib/linux-g++/tmake.conf	2003-06-17 16:57:29.000000000 +0200
-@@ -29,7 +29,7 @@
- TMAKE_LIBDIR		=
- TMAKE_INCDIR_X11	= /usr/X11R6/include
- TMAKE_LIBDIR_X11	= /usr/X11R6/lib
--TMAKE_INCDIR_QT		= $(QTDIR)/include
-+TMAKE_INCDIR_QT		= $(QTDIR)/include/qt
- TMAKE_LIBDIR_QT		= $(QTDIR)/lib
- TMAKE_INCDIR_OPENGL	= /usr/X11R6/include
- TMAKE_LIBDIR_OPENGL	= /usr/X11R6/lib
---- doxygen-1.5.1/tmake/lib/linux-64/tmake.conf.orig	2006-07-21 19:54:13.000000000 +0000
-+++ doxygen-1.5.1/tmake/lib/linux-64/tmake.conf	2006-12-11 20:15:12.000000000 +0000
-@@ -29,7 +29,7 @@
- TMAKE_LIBDIR		=
- TMAKE_INCDIR_X11	= /usr/X11R6/include
- TMAKE_LIBDIR_X11	= /usr/X11R6/lib64
--TMAKE_INCDIR_QT		= $(QTDIR)/include
-+TMAKE_INCDIR_QT		= $(QTDIR)/include/qt
- TMAKE_LIBDIR_QT		= $(QTDIR)/lib64
- TMAKE_INCDIR_OPENGL	= /usr/X11R6/include
- TMAKE_LIBDIR_OPENGL	= /usr/X11R6/lib64
---- doxygen-1.5.1/configure.orig	2006-12-11 21:47:53.000000000 +0100
-+++ doxygen-1.5.1/configure	2006-12-11 21:53:56.546591750 +0100
-@@ -259,7 +259,7 @@
+diff -up doxygen-1.6.0/addon/doxywizard/Makefile.in.config doxygen-1.6.0/addon/doxywizard/Makefile.in
+--- doxygen-1.6.0/addon/doxywizard/Makefile.in.config	2009-07-13 22:09:03.000000000 +0200
++++ doxygen-1.6.0/addon/doxywizard/Makefile.in	2009-08-21 16:42:13.000000000 +0200
+@@ -10,8 +10,6 @@
+ # See the GNU General Public License for more details.
+ # 
+ 
+-QMAKE=qmake
+-
+ all: Makefile.doxywizard  
+ 	$(MAKE) -f Makefile.doxywizard 
+ 
+@@ -29,11 +27,11 @@ distclean: Makefile.doxywizard
+ 	$(RM) Makefile.doxywizard
+ 
+ install:
+-	$(INSTTOOL) -d $(INSTALL)/bin	
+-	$(INSTTOOL) -m 755 ../../bin/doxywizard $(INSTALL)/bin	
+-	$(INSTTOOL) -d $(INSTALL)/$(MAN1DIR)
++	$(INSTTOOL) -d $(DESTDIR)$(INSTALL)/bin	
++	$(INSTTOOL) -m 755 ../../bin/doxywizard $(DESTDIR)$(INSTALL)/bin	
++	$(INSTTOOL) -d $(DESTDIR)$(INSTALL)/$(MAN1DIR)
+ 	cat ../../doc/doxywizard.1 | sed -e "s/DATE/$(DATE)/g" -e "s/VERSION/$(VERSION)/g" > doxywizard.1
+-	$(INSTTOOL) -m 644 doxywizard.1 $(INSTALL)/$(MAN1DIR)/doxywizard.1
++	$(INSTTOOL) -m 644 doxywizard.1 $(DESTDIR)$(INSTALL)/$(MAN1DIR)/doxywizard.1
+ 	rm doxywizard.1
+ 
+ FORCE:
+diff -up doxygen-1.6.0/configure.config doxygen-1.6.0/configure
+--- doxygen-1.6.0/configure.config	2009-08-20 14:15:07.000000000 +0200
++++ doxygen-1.6.0/configure	2009-08-21 16:41:36.000000000 +0200
+@@ -268,9 +268,10 @@ if test "$f_wizard" = YES; then
+   if test -z "$QTDIR"; then
      echo "  QTDIR environment variable not set!"
      echo -n "  Checking for Qt..."
-     for d in /usr/{lib,share,qt}/{qt-3,qt3,qt,qt*,3}; do
--      if test -d "$d/lib" -a -d "$d/include" -a -x "$d/bin/moc"; then
-+      if test -d "$d/lib" -a -d "$d/include/qt" -a -x "$d/bin/moc"; then
+-    for d in /usr/{lib,share,qt}/{qt-4,qt4,qt,qt*,4}; do
++    for d in /usr/{lib64,lib,share,qt}/{qt-4,qt4,qt,qt*,4}; do
+       if test -x "$d/bin/qmake"; then
          QTDIR=$d
++        QMAKE=$d/bin/qmake
        fi
      done
-@@ -281,15 +281,15 @@
-       fi
-       LIBDIR=lib64
-     fi
--    if test ! -d "$QTDIR/include"; then
--      echo "QTDIR is set to $QTDIR, but include directory $QTDIR/include does not exist!"
-+    if test ! -d "$QTDIR/include/qt"; then
-+      echo "QTDIR is set to $QTDIR, but include directory $QTDIR/include/qt does not exist!"
-       exit 2
-     fi
-     if test ! -x "$QTDIR/bin/moc"; then
-       echo "QTDIR is set to $QTDIR, but the moc tool could not be found in $QTDIR/bin!"
-       exit 2
-     fi
--    echo " headers $QTDIR/include,"
-+    echo " headers $QTDIR/include/qt,"
-     echo "                     libraries $QTDIR/$LIBDIR"  
-     if test -f $QTDIR/$LIBDIR/libqt-mt.la; then
-       f_thread=YES
+   else
+@@ -485,6 +486,8 @@ INSTTOOL  = $f_insttool
+ DOXYDOCS  = ..
+ DOCDIR    = $f_docdir
+ QTDIR     = $QTDIR
++QMAKE     = $QMAKE
++MAN1DIR    = share/man/man1
+ EOF
+ 
+ if test "$f_dot" != NO; then
+diff -up doxygen-1.6.0/Makefile.in.config doxygen-1.6.0/Makefile.in
+--- doxygen-1.6.0/Makefile.in.config	2009-08-14 15:58:42.000000000 +0200
++++ doxygen-1.6.0/Makefile.in	2009-08-21 16:34:02.000000000 +0200
+@@ -44,8 +44,6 @@ distclean: clean
+ 
+ DATE=$(shell date "+%B %Y")
+ 
+-MAN1DIR = man/man1
+-
+ install: doxywizard_install 
+ 	$(INSTTOOL) -d $(DESTDIR)/$(INSTALL)/bin
+ 	$(INSTTOOL) -m 755 bin/doxygen    $(DESTDIR)/$(INSTALL)/bin
