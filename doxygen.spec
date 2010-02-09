@@ -18,7 +18,6 @@ Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 # Source0-md5:	70260101ef60952cb99484700241c99e
 Patch1:		%{name}-qt-dirs.patch
 Patch2:		%{name}-lib64.patch
-Patch3:		%{name}-qt-thread.patch
 Patch4:		%{name}-64bit.patch
 URL:		http://www.doxygen.org/
 BuildRequires:	bison
@@ -134,7 +133,6 @@ Wizard gráfico para o Doxygen.
 %if "%{_lib}" == "lib64"
 %patch2 -p1
 %endif
-%patch3 -p1
 
 rm -rf libpng src/unistd.h addon/doxywizard/Makefile.doxywizard
 
