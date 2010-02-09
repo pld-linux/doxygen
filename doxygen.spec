@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	Система документирования для C та
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
 Version:	1.6.2
-Release:	0.001
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
