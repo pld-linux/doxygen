@@ -5,7 +5,7 @@ diff -up doxygen-1.6.0/addon/doxywizard/Makefile.in.config doxygen-1.6.0/addon/d
  # See the GNU General Public License for more details.
  # 
  
--QMAKE=qmake
+-QMAKE=qmake $(MKSPECS)
 -
  all: Makefile.doxywizard  
  	$(MAKE) -f Makefile.doxywizard 
@@ -33,7 +33,7 @@ diff -up doxygen-1.6.0/configure.config doxygen-1.6.0/configure
    if test -z "$QTDIR"; then
      echo "  QTDIR environment variable not set!"
      echo -n "  Checking for Qt..."
--    for d in /usr/{lib,share,qt}/{qt-4,qt4,qt,qt*,4}; do
+-    for d in /usr/{lib,share,qt}/{qt-4,qt4,qt,qt*,4} /usr; do
 +    for d in /usr/{lib64,lib,share,qt}/{qt-4,qt4,qt,qt*,4}; do
        if test -x "$d/bin/qmake"; then
          QTDIR=$d
