@@ -36,6 +36,11 @@ BuildRequires:	tetex-format-pdflatex >= 1:3.0-2
 BuildRequires:	texlive-latex
 BuildRequires:	texlive-pdftex
 %endif
+# I don't know what is the exact names in TI, please correct
+%if "%{pld_release}" == "th"
+Suggests:	texlive-latex-extends
+Suggests:	texlive-makeindex
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # because of qt
