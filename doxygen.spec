@@ -38,6 +38,8 @@ BuildRequires:	texlive-pdftex
 %endif
 # I don't know what is the exact names in TI, please correct
 %if "%{pld_release}" == "th"
+Suggests:	texlive-fonts-larm
+Suggests:	texlive-latex-cyrillic
 Suggests:	texlive-latex-extends
 Suggests:	texlive-makeindex
 %endif
