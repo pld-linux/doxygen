@@ -29,13 +29,8 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	perl-base
 %{?with_qt:BuildRequires:	qt4-build >= 4.3}
 %{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
-%if "%{pld_release}" == "ti"
-BuildRequires:	tetex-format-latex >= 1:3.0-2
-BuildRequires:	tetex-format-pdflatex >= 1:3.0-2
-%else
 BuildRequires:	texlive-latex
 BuildRequires:	texlive-pdftex
-%endif
 # I don't know what is the exact names in TI, please correct
 %if "%{pld_release}" == "th"
 Suggests:	texlive-fonts-larm
