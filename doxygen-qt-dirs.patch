@@ -50,15 +50,14 @@ diff -up doxygen-1.6.0/configure.config doxygen-1.6.0/configure
  EOF
  
  if test "$f_dot" != NO; then
-diff -up doxygen-1.6.0/Makefile.in.config doxygen-1.6.0/Makefile.in
---- doxygen-1.6.0/Makefile.in.config	2009-08-14 15:58:42.000000000 +0200
-+++ doxygen-1.6.0/Makefile.in	2009-08-21 16:34:02.000000000 +0200
-@@ -44,8 +44,6 @@ distclean: clean
+--- doxygen-1.8.3/Makefile.in.orig	2013-01-02 21:33:10.021332601 +0100
++++ doxygen-1.8.3/Makefile.in	2013-01-03 16:32:34.159907679 +0100
+@@ -53,8 +53,6 @@
  
  DATE=$(shell date "+%B %Y")
  
 -MAN1DIR = man/man1
 -
- install: doxywizard_install 
+ install: doxywizard_install doxysearch_install
  	$(INSTTOOL) -d $(DESTDIR)/$(INSTALL)/bin
- 	$(INSTTOOL) -m 755 bin/doxygen    $(DESTDIR)/$(INSTALL)/bin
+ 	$(INSTTOOL) -m 755 bin/doxygen        $(DESTDIR)/$(INSTALL)/bin
