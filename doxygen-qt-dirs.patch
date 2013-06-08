@@ -26,13 +26,12 @@ diff -up doxygen-1.6.0/addon/doxywizard/Makefile.in.config doxygen-1.6.0/addon/d
  	rm doxywizard.1
  
  FORCE:
-diff -up doxygen-1.6.0/configure.config doxygen-1.6.0/configure
---- doxygen-1.6.0/configure.config	2009-08-20 14:15:07.000000000 +0200
-+++ doxygen-1.6.0/configure	2009-08-21 16:41:36.000000000 +0200
-@@ -268,9 +268,10 @@ if test "$f_wizard" = YES; then
+--- doxygen-1.8.4/configure.orig	2013-05-19 12:05:39.000000000 +0200
++++ doxygen-1.8.4/configure	2013-06-08 09:12:44.470080015 +0200
+@@ -296,9 +296,10 @@
    if test -z "$QTDIR"; then
      echo "  QTDIR environment variable not set!"
-     echo -n "  Checking for Qt..."
+     printf "  Checking for Qt..."
 -    for d in /usr/{lib,share,qt}/{qt-4,qt4,qt,qt*,4} /usr; do
 +    for d in /usr/{lib64,lib,share,qt}/{qt-4,qt4,qt,qt*,4}; do
        if test -x "$d/bin/qmake"; then
@@ -41,7 +40,7 @@ diff -up doxygen-1.6.0/configure.config doxygen-1.6.0/configure
        fi
      done
    else
-@@ -485,6 +486,8 @@ INSTTOOL  = $f_insttool
+@@ -606,6 +607,8 @@
  DOXYDOCS  = ..
  DOCDIR    = $f_docdir
  QTDIR     = $QTDIR
