@@ -10,22 +10,6 @@ diff -up doxygen-1.6.0/addon/doxywizard/Makefile.in.config doxygen-1.6.0/addon/d
  all: Makefile.doxywizard  
  	$(MAKE) -f Makefile.doxywizard 
  
-@@ -29,11 +27,11 @@ distclean: Makefile.doxywizard
- 	$(RM) Makefile.doxywizard
- 
- install:
--	$(INSTTOOL) -d $(INSTALL)/bin	
--	$(INSTTOOL) -m 755 ../../bin/doxywizard $(INSTALL)/bin	
--	$(INSTTOOL) -d $(INSTALL)/$(MAN1DIR)
-+	$(INSTTOOL) -d $(DESTDIR)$(INSTALL)/bin	
-+	$(INSTTOOL) -m 755 ../../bin/doxywizard $(DESTDIR)$(INSTALL)/bin	
-+	$(INSTTOOL) -d $(DESTDIR)$(INSTALL)/$(MAN1DIR)
- 	cat ../../doc/doxywizard.1 | sed -e "s/DATE/$(DATE)/g" -e "s/VERSION/$(VERSION)/g" > doxywizard.1
--	$(INSTTOOL) -m 644 doxywizard.1 $(INSTALL)/$(MAN1DIR)/doxywizard.1
-+	$(INSTTOOL) -m 644 doxywizard.1 $(DESTDIR)$(INSTALL)/$(MAN1DIR)/doxywizard.1
- 	rm doxywizard.1
- 
- FORCE:
 --- doxygen-1.8.4/configure.orig	2013-05-19 12:05:39.000000000 +0200
 +++ doxygen-1.8.4/configure	2013-06-08 09:12:44.470080015 +0200
 @@ -296,9 +296,10 @@

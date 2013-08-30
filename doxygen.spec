@@ -9,13 +9,13 @@ Summary(pt_BR.UTF-8):	Um sistema de documentação para C/C++
 Summary(ru.UTF-8):	Система документирования для C та C++
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
-Version:	1.8.4
+Version:	1.8.5
 Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v2
 Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
-# Source0-md5:	5f460b91c0d8c34a76173cf22015c2fc
+# Source0-md5:	db51274568755e2c75c2657e30a78a55
 Patch0:		%{name}-qt-dirs.patch
 URL:		http://www.doxygen.org/
 %{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
@@ -162,14 +162,16 @@ Wizard gráfico para o Doxygen.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc html examples README
+%doc html examples README.md
 %attr(755,root,root) %{_bindir}/doxygen
 %{_mandir}/man1/doxygen.1*
 
