@@ -5,7 +5,7 @@
      echo "  QTDIR environment variable not set!"
      printf "  Checking for Qt..."
 -    for d in /usr/{lib,share,qt}/{qt-4,qt4,qt,qt*,4} /usr; do
-+    for d in /usr/{lib64,lib,share,qt}/{qt-4,qt4,qt,qt*,4}; do
++    for d in /usr/{libx32,lib64,lib,share,qt}/{qt-4,qt4,qt,qt*,4}; do
        if test -x "$d/bin/qmake"; then
          QTDIR=$d
          break 2
