@@ -36,6 +36,7 @@ BuildRequires:	texlive-pdftex
 Suggests:	texlive-fonts-larm
 Suggests:	texlive-latex-cyrillic
 Suggests:	texlive-latex-extend
+Suggests:	texlive-latex-wasysym
 Suggests:	texlive-makeindex
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
