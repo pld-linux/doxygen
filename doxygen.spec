@@ -17,6 +17,7 @@ Group:		Development/Tools
 Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
 # Source0-md5:	0cbe6912fcac302a984bfcfb9231fec9
 Patch0:		%{name}-qt-dirs.patch
+Patch1:		flex2.6.patch
 URL:		http://www.doxygen.org/
 %{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
 %{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
@@ -138,6 +139,7 @@ Wizard gráfico para o Doxygen.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 # don't change it to %%configure, not autoconf-generated!
