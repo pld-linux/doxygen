@@ -1,0 +1,14 @@
+--- doxygen-1.8.18/doc/CMakeLists.txt.orig	2020-01-03 23:51:18.000000000 +0100
++++ doxygen-1.8.18/doc/CMakeLists.txt	2020-05-01 12:39:52.747056284 +0200
+@@ -212,11 +212,6 @@
+         DESTINATION ${CMAKE_INSTALL_MANDIR}/man1
+ )
+ 
+-install(FILES
+-        "${PROJECT_BINARY_DIR}/latex/doxygen_manual.pdf"
+-        DESTINATION "${CMAKE_INSTALL_PREFIX}/${DOC_INSTALL_DIR}"
+-)
+-
+ if (build_doc_chm)
+ install(FILES
+         "${PROJECT_BINARY_DIR}/chm/doxygen_manual.chm"

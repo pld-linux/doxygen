@@ -9,26 +9,28 @@ Summary(pt_BR.UTF-8):	Um sistema de documentação para C/C++
 Summary(ru.UTF-8):	Система документирования для C та C++
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
-Version:	1.8.8
-Release:	2
+Version:	1.8.18
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Development/Tools
-Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
-# Source0-md5:	0cbe6912fcac302a984bfcfb9231fec9
-Patch0:		%{name}-qt-dirs.patch
+Source0:	http://doxygen.nl/files/%{name}-%{version}.src.tar.gz
+# Source0-md5:	eda8e82fcc58970894029b0399776cb5
+Patch0:		%{name}-manual_pdf.patch
 URL:		http://www.doxygen.org/
-%{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
-%{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
+%{?with_qt:BuildRequires:	Qt5Gui-devel}
+%{?with_qt:BuildRequires:	Qt5Xml-devel}
 BuildRequires:	bison
+BuildRequires:	cmake >= 3.3
 BuildRequires:	flex
 BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
-BuildRequires:	libstdc++-devel
+# c++14
+BuildRequires:	libstdc++-devel >= 6:5.0
 BuildRequires:	perl-base
-%{?with_qt:BuildRequires:	qt4-build >= 4.3}
-%{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
+%{?with_qt:BuildRequires:	qt5-build}
+%{?with_qt:BuildRequires:	qt5-qmake}
 BuildRequires:	texlive-latex
 BuildRequires:	texlive-pdftex
 # I don't know what is the exact names in TI, please correct
@@ -140,25 +142,10 @@ Wizard gráfico para o Doxygen.
 %patch0 -p1
 
 %build
-# don't change it to %%configure, not autoconf-generated!
-./configure \
-	--prefix %{_prefix} \
-	--perl %{__perl} \
-	--install %{_bindir}/install \
-	%{?with_qt:--with-doxywizard}
-
-%{__make} \
-	CC="%{__cc}" \
-	CXX="%{__cxx}" \
-	LINK="%{__cxx}" \
-	QMAKE="%{_bindir}/qmake-qt4" \
-	QTDIR="%{_prefix}" \
-	CFLAGS="%{rpmcflags}" \
-	CXXFLAGS="%{rpmcxxflags} -DQT_LITE_UNICODE -DNODEBUG" \
-	LFLAGS="%{rpmldflags}"
-
-%{__make} docs
-#%%{__make} pdf
+%cmake \
+	-DBUILD_SHARED_LIBS=OFF \
+	-Dbuild_doc=ON \
+	-Dbuild_wizard=%{?with_qt:ON}%{!?with_qt:OFF}
 
 %install
 rm -rf $RPM_BUILD_ROOT
