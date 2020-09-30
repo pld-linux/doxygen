@@ -35,19 +35,7 @@ BuildRequires:	perl-base
 %{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
 BuildRequires:	texlive-latex
 BuildRequires:	texlive-pdftex
-Suggests:	tex(adjustbox)
-# I don't know what is the exact names in TI, please correct
-%if "%{pld_release}" == "th"
-Suggests:	texlive-fonts-larm
-Suggests:	texlive-latex-cyrillic
-Suggests:	texlive-latex-extend
-Suggests:	texlive-latex-wasysym
-Suggests:	texlive-makeindex
-%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-# because of qt
-%define		_noautoreqdep	libGL.so.1 libGLU.so.1
 
 %description
 Doxygen is a documentation system for C, C++ and IDL. It can generate
@@ -140,6 +128,40 @@ plików konfiguracyjnych używanych przez doxygen.
 %description doxywizard -l pt_BR.UTF-8
 Wizard gráfico para o Doxygen.
 
+%package latex
+Summary:	LaTeX packages to support Doxygen-generated files compilation
+Summary(pl.UTF-8):	Pakiety LaTeXa pozwalające na kompilowanie plików wygenerowanych przez Doxygena
+Group:		Applications/Publishing
+Requires:	/usr/bin/pdflatex
+Requires:	/usr/bin/makeindex
+Requires:	tex(adjustbox)
+# TODO: generic dependencies instead of texlive-specific:
+#Requires:	tex(psnfss)
+#Requires:	tex(wasysym)
+# TODO: generic dependencies instead of texlive-specific:
+Requires:	texlive-fonts-larm
+# alltt array calc fancyhdr fixltx2e float fontenc geometry hyperref ifpdf ifthen inputenc makeidx multirow natbib sectsty textcomp tocloft verbatim xcolor xtab
+Requires:	texlive-latex
+# amssymb
+Requires:	texlive-latex-ams
+# ??? obsolete?
+Requires:	texlive-latex-cyrillic
+# ??? obsolete?
+Requires:	texlive-latex-extend
+# courier helvet
+Requires:	texlive-latex-psnfss
+Requires:	texlive-latex-wasysym
+Requires:	texlive-makeindex
+
+%description latex
+This metapackage installs all LaTeX packages required to compile PDF
+documentation from Doxygen-generated LaTeX files.
+
+%description latex -l pl.UTF-8
+Ten metapakiet instaluje wszystkie pakiety LaTeXa otrzebne do
+skompilowania dokumentacji w formacie PDF z plików LaTeXa
+wygenerowanych przez Doxygena.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -187,3 +209,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/doxywizard
 %{_mandir}/man1/doxywizard.1*
 %endif
+
+%files latex
+%defattr(644,root,root,755)
