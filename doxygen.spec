@@ -9,16 +9,19 @@ Summary(pt_BR.UTF-8):	Um sistema de documentação para C/C++
 Summary(ru.UTF-8):	Система документирования для C та C++
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
-Version:	1.8.8
-Release:	2
+Version:	1.8.9.1
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Development/Tools
-Source0:	ftp://ftp.stack.nl/pub/users/dimitri/%{name}-%{version}.src.tar.gz
-# Source0-md5:	0cbe6912fcac302a984bfcfb9231fec9
+# only latest
+#Source0Download: https://www.doxygen.nl/download.html
+#Source0:	https://www.doxygen.nl/files/%{name}-%{version}.src.tar.gz
+Source0:	http://downloads.sourceforge.net/doxygen/%{name}-%{version}.src.tar.gz
+# Source0-md5:	3d1a5c26bef358c10a3894f356a69fbc
 Patch0:		%{name}-qt-dirs.patch
 Patch1:		flex2.6.patch
-URL:		http://www.doxygen.org/
+URL:		https://www.doxygen.nl/
 %{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
 %{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
 BuildRequires:	bison
@@ -32,6 +35,7 @@ BuildRequires:	perl-base
 %{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
 BuildRequires:	texlive-latex
 BuildRequires:	texlive-pdftex
+Suggests:	tex(adjustbox)
 # I don't know what is the exact names in TI, please correct
 %if "%{pld_release}" == "th"
 Suggests:	texlive-fonts-larm
