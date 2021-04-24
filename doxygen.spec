@@ -1,6 +1,8 @@
+# NOTE: on upgrades, beware of texlive features available in PLD
 #
 # Conditional build:
 %bcond_without	qt	# without doxywizard (qt-based)
+%bcond_without	xapian	# without doxysearch (xapian based)
 #
 Summary:	Doxygen is the documentation system for C/C++
 Summary(es.UTF-8):	Doxygen es el sistema de documentación para C/C++
@@ -9,7 +11,7 @@ Summary(pt_BR.UTF-8):	Um sistema de documentação para C/C++
 Summary(ru.UTF-8):	Система документирования для C та C++
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
-Version:	1.8.9.1
+Version:	1.8.10
 Release:	1
 Epoch:		1
 License:	GPL v2
@@ -18,23 +20,26 @@ Group:		Development/Tools
 #Source0Download: https://www.doxygen.nl/download.html
 #Source0:	https://www.doxygen.nl/files/%{name}-%{version}.src.tar.gz
 Source0:	http://downloads.sourceforge.net/doxygen/%{name}-%{version}.src.tar.gz
-# Source0-md5:	3d1a5c26bef358c10a3894f356a69fbc
-Patch0:		%{name}-qt-dirs.patch
+# Source0-md5:	79767ccd986f12a0f949015efb5f058f
+Patch0:		%{name}-doc.patch
 Patch1:		flex2.6.patch
 URL:		https://www.doxygen.nl/
 %{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
 %{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
 BuildRequires:	bison
+BuildRequires:	cmake >= 2.8.12
 BuildRequires:	flex
 BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-base
+BuildRequires:	python >= 2
 %{?with_qt:BuildRequires:	qt4-build >= 4.3}
 %{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
 BuildRequires:	texlive-latex
 BuildRequires:	texlive-pdftex
+%{?with_xapian:BuildRequires:	xapian-core-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -105,6 +110,18 @@ Doxygen можна також зконфігурувати для отриман
 недокументованих вихідних файлів. Це може бути дуже корисним для того,
 щоб швидко розібратися у великому проекті.
 
+%package search
+Summary:	Search tools for Doxygen
+Summary(pl.UTF-8):	Narzędzia do przeszukiwania dla Doxygena
+Group:		Development/Tools
+Conflicts:	doxygen < 1:1.3.4
+
+%description search
+Search tools for Doxygen.
+
+%description search -l pl.UTF-8
+Narzędzia do przeszukiwania dla Doxygena.
+
 %package doxywizard
 Summary:	A GUI front-end for creating and editing configuration files
 Summary(es.UTF-8):	Un front-end GUI para crear y editar ficheros de configuración
@@ -168,40 +185,45 @@ wygenerowanych przez Doxygena.
 %patch1 -p1
 
 %build
-# don't change it to %%configure, not autoconf-generated!
-./configure \
-	--prefix %{_prefix} \
-	--perl %{__perl} \
-	--install %{_bindir}/install \
-	%{?with_qt:--with-doxywizard}
+install -d build
+cd build
+%cmake .. \
+	-DBUILD_SHARED_LIBS=OFF \
+	-Dbuild_doc=ON \
+	%{?with_xapian:-Dbuild_search=ON} \
+	%{?with_qt:-Dbuild_wizard=ON}
 
-%{__make} \
-	CC="%{__cc}" \
-	CXX="%{__cxx}" \
-	LINK="%{__cxx}" \
-	QMAKE="%{_bindir}/qmake-qt4" \
-	QTDIR="%{_prefix}" \
-	CFLAGS="%{rpmcflags}" \
-	CXXFLAGS="%{rpmcxxflags} -DQT_LITE_UNICODE -DNODEBUG" \
-	LFLAGS="%{rpmldflags}"
+%{__make}
 
 %{__make} docs
-#%%{__make} pdf
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{_examplesdir}
+cp -pr examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc html examples README.md
+%doc README.md build/html
 %attr(755,root,root) %{_bindir}/doxygen
+%{_examplesdir}/%{name}-%{version}
 %{_mandir}/man1/doxygen.1*
+
+%if %{with xapian}
+%files search
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/doxyindexer
+%attr(755,root,root) %{_bindir}/doxysearch.cgi
+%{_mandir}/man1/doxyindexer.1*
+%{_mandir}/man1/doxysearch.1*
+%endif
 
 %if %{with qt}
 %files doxywizard

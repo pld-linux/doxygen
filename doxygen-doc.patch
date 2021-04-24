@@ -1,0 +1,21 @@
+--- doxygen-1.8.10/doc/CMakeLists.txt.orig	2021-04-24 19:09:10.889930009 +0200
++++ doxygen-1.8.10/doc/CMakeLists.txt	2021-04-24 19:09:33.446474476 +0200
+@@ -88,17 +88,7 @@ install(FILES
+         "${PROJECT_BINARY_DIR}/man/doxywizard.1"
+         "${PROJECT_BINARY_DIR}/man/doxysearch.1"
+         "${PROJECT_BINARY_DIR}/man/doxyindexer.1"
+-        DESTINATION man/man1
+-)
+-
+-install(FILES
+-        "${PROJECT_BINARY_DIR}/latex/doxygen_manual.pdf"
+-        DESTINATION "${CMAKE_INSTALL_PREFIX}/${DOC_INSTALL_DIR}"
+-)
+-
+-install(DIRECTORY
+-        "${PROJECT_BINARY_DIR}/html"
+-        DESTINATION "${CMAKE_INSTALL_PREFIX}/${DOC_INSTALL_DIR}"
++        DESTINATION share/man/man1
+ )
+ 
+ endif()
