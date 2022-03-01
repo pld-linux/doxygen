@@ -1,6 +1,7 @@
 # NOTE: on upgrades, beware of texlive features available in PLD
 #
 # Conditional build:
+%bcond_without	doc	# without doc
 %bcond_without	qt	# without doxywizard (qt-based)
 %bcond_without	xapian	# without doxysearch (xapian based)
 #
@@ -34,11 +35,11 @@ BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-base
-BuildRequires:	python >= 2
+BuildRequires:	python3
 %{?with_qt:BuildRequires:	qt4-build >= 4.3}
 %{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
-BuildRequires:	texlive-latex
-BuildRequires:	texlive-pdftex
+%{?with_doc:BuildRequires:	texlive-latex}
+%{?with_doc:BuildRequires:	texlive-pdftex}
 %{?with_xapian:BuildRequires:	xapian-core-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -189,13 +190,15 @@ install -d build
 cd build
 %cmake .. \
 	-DBUILD_SHARED_LIBS=OFF \
-	-Dbuild_doc=ON \
+	%{?with_doc:-Dbuild_doc=ON} \
 	%{?with_xapian:-Dbuild_search=ON} \
 	%{?with_qt:-Dbuild_wizard=ON}
 
 %{__make}
 
+%if %{with doc}
 %{__make} docs
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -206,12 +209,24 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}
 cp -pr examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
+%if !%{with doc}
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
+install -c -m 644 doc/doxygen.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%if %{with xapian}
+install -c -m 644 doc/doxyindexer.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install -c -m 644 doc/doxysearch.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%endif
+%if %{with qt}
+%endif
+install -c -m 644 doc/doxywizard.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%endif
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.md build/html
+%doc README.md %{?with_doc:build/html}
 %attr(755,root,root) %{_bindir}/doxygen
 %{_examplesdir}/%{name}-%{version}
 %{_mandir}/man1/doxygen.1*
