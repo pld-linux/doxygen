@@ -12,7 +12,7 @@ Summary(pt_BR.UTF-8):	Um sistema de documentação para C/C++
 Summary(ru.UTF-8):	Система документирования для C та C++
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
-Version:	1.8.10
+Version:	1.14.0
 Release:	1
 Epoch:		1
 License:	GPL v2
@@ -21,23 +21,24 @@ Group:		Development/Tools
 #Source0Download: https://www.doxygen.nl/download.html
 #Source0:	https://www.doxygen.nl/files/%{name}-%{version}.src.tar.gz
 Source0:	http://downloads.sourceforge.net/doxygen/%{name}-%{version}.src.tar.gz
-# Source0-md5:	79767ccd986f12a0f949015efb5f058f
-Patch0:		%{name}-doc.patch
-Patch1:		flex2.6.patch
+# Source0-md5:	a86f6c0203e51a57fbcaf98830d1be16
 URL:		https://www.doxygen.nl/
+%if %{with qt}
+BuildRequires:	Qt6Core-devel
+BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Xml-devel
+%endif
 %{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
 %{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
 BuildRequires:	bison
 BuildRequires:	cmake >= 2.8.12
-BuildRequires:	flex
+BuildRequires:	flex >= 2.6.4
 BuildRequires:	ghostscript
 BuildRequires:	ghostscript-fonts-std
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-base
 BuildRequires:	python3
-%{?with_qt:BuildRequires:	qt4-build >= 4.3}
-%{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
 %{?with_doc:BuildRequires:	texlive-latex}
 %{?with_doc:BuildRequires:	texlive-pdftex}
 %{?with_xapian:BuildRequires:	xapian-core-devel}
@@ -182,8 +183,6 @@ wygenerowanych przez Doxygena.
 
 %prep
 %setup -q
-%patch -P0 -p1
-%patch -P1 -p1
 
 %build
 install -d build
@@ -192,7 +191,7 @@ cd build
 	-DBUILD_SHARED_LIBS=OFF \
 	%{?with_doc:-Dbuild_doc=ON} \
 	%{?with_xapian:-Dbuild_search=ON} \
-	%{?with_qt:-Dbuild_wizard=ON}
+	%{?with_qt:-Dbuild_wizard=ON -Dforce_qt=Qt6}
 
 %{__make}
 
