@@ -39,6 +39,7 @@ BuildRequires:	perl-base
 BuildRequires:	python3
 %{?with_qt:BuildRequires:	qt4-build >= 4.3}
 %{?with_qt:BuildRequires:	qt4-qmake >= 4.3}
+%{?with_doc:BuildRequires:	texlive-format-pdflatex}
 %{?with_doc:BuildRequires:	texlive-latex}
 %{?with_doc:BuildRequires:	texlive-pdftex}
 %{?with_xapian:BuildRequires:	xapian-core-devel}
