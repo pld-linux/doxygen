@@ -1,0 +1,15 @@
+Allow using gs in SAFER mode
+--- doxygen-1.8.10/src/formula.cpp.orig	2015-05-31 21:01:12.000000000 +0200
++++ doxygen-1.8.10/src/formula.cpp	2026-07-10 06:22:36.462313058 +0200
+@@ -183,9 +183,9 @@ void FormulaList::generateBitmaps(const
+ 
+       char gsArgs[4096];
+       sprintf(gsArgs,"-q -g%dx%d -r%dx%dx -sDEVICE=ppmraw "
+-                    "-sOutputFile=%s.pnm -dNOPAUSE -dBATCH -- %s.ps",
++                    "-sOutputFile=%s.pnm -dNOPAUSE -dBATCH --permit-file-read=%s.eps -- %s.ps",
+                     gx,gy,(int)(scaleFactor*72),(int)(scaleFactor*72),
+-                    formBase.data(),formBase.data()
++                    formBase.data(),formBase.data(),formBase.data()
+              );
+       portable_sysTimerStart();
+       if (portable_system(portable_ghostScriptCommand(),gsArgs)!=0)

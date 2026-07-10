@@ -13,7 +13,7 @@ Summary(ru.UTF-8):	Система документирования для C та
 Summary(uk.UTF-8):	Система документування для C та C++
 Name:		doxygen
 Version:	1.8.10
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Development/Tools
@@ -24,6 +24,7 @@ Source0:	http://downloads.sourceforge.net/doxygen/%{name}-%{version}.src.tar.gz
 # Source0-md5:	79767ccd986f12a0f949015efb5f058f
 Patch0:		%{name}-doc.patch
 Patch1:		flex2.6.patch
+Patch2:		%{name}-gs-safer.patch
 URL:		https://www.doxygen.nl/
 %{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
 %{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
@@ -184,6 +185,7 @@ wygenerowanych przez Doxygena.
 %setup -q
 %patch -P0 -p1
 %patch -P1 -p1
+%patch -P2 -p1
 
 %build
 install -d build
