@@ -1,7 +1,7 @@
 # NOTE: on upgrades, beware of texlive features available in PLD
 #
 # Conditional build:
-%bcond_without	doc	# without doc
+%bcond_with	doc	# without doc
 %bcond_without	qt	# without doxywizard (qt-based)
 %bcond_without	xapian	# without doxysearch (xapian based)
 #
@@ -22,14 +22,14 @@ Group:		Development/Tools
 #Source0:	https://www.doxygen.nl/files/%{name}-%{version}.src.tar.gz
 Source0:	http://downloads.sourceforge.net/doxygen/%{name}-%{version}.src.tar.gz
 # Source0-md5:	a86f6c0203e51a57fbcaf98830d1be16
+Patch0:		no-regexpatch.patch
 URL:		https://www.doxygen.nl/
 %if %{with qt}
 BuildRequires:	Qt6Core-devel
 BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Widgets-devel
 BuildRequires:	Qt6Xml-devel
 %endif
-%{?with_qt:BuildRequires:	QtGui-devel >= 4.3}
-%{?with_qt:BuildRequires:	QtXml-devel >= 4.3}
 BuildRequires:	bison
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	flex >= 2.6.4
@@ -39,8 +39,19 @@ BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-base
 BuildRequires:	python3
-%{?with_doc:BuildRequires:	texlive-latex}
-%{?with_doc:BuildRequires:	texlive-pdftex}
+%if %{with doc}
+BuildRequires:	texlive-latex >= 20190101
+BuildRequires:	texlive-latex-appendix
+BuildRequires:	texlive-latex-enumitem
+BuildRequires:	texlive-latex-wasysym
+BuildRequires:	texlive-tex-xkeyval
+BuildRequires:	texlive-pdftex
+BuildRequires:	tex(adjustbox)
+BuildRequires:	tex(iftex.sty)
+BuildRequires:	tex(listofitems.sty)
+BuildRequires:	tex(newunicodechar.sty)
+BuildRequires:	tex(stackengine.sty)
+%endif
 %{?with_xapian:BuildRequires:	xapian-core-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -154,6 +165,8 @@ Group:		Applications/Publishing
 Requires:	/usr/bin/pdflatex
 Requires:	/usr/bin/makeindex
 Requires:	tex(adjustbox)
+Requires:	tex(iftex.sty)
+Requires:	tex(newunicodechar.sty)
 # TODO: generic dependencies instead of texlive-specific:
 #Requires:	tex(psnfss)
 #Requires:	tex(wasysym)
@@ -165,6 +178,7 @@ Requires:	texlive-latex
 Requires:	texlive-latex-ams
 # ??? obsolete?
 Requires:	texlive-latex-cyrillic
+Requires:	texlive-latex-enumitem
 # ??? obsolete?
 Requires:	texlive-latex-extend
 # courier helvet
@@ -183,15 +197,17 @@ wygenerowanych przez Doxygena.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
 install -d build
 cd build
 %cmake .. \
 	-DBUILD_SHARED_LIBS=OFF \
-	%{?with_doc:-Dbuild_doc=ON} \
-	%{?with_xapian:-Dbuild_search=ON} \
-	%{?with_qt:-Dbuild_wizard=ON -Dforce_qt=Qt6}
+	%{cmake_on_off doc build_doc} \
+	%{cmake_on_off xapian build_search} \
+	%{cmake_on_off qt build_wizard} \
+	-Dforce_qt=Qt6
 
 %{__make}
 
@@ -216,8 +232,8 @@ install -c -m 644 doc/doxyindexer.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install -c -m 644 doc/doxysearch.1 $RPM_BUILD_ROOT%{_mandir}/man1
 %endif
 %if %{with qt}
-%endif
 install -c -m 644 doc/doxywizard.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%endif
 %endif
 
 %clean

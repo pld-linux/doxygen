@@ -1,0 +1,28 @@
+--- doxygen-1.14.0/src/translator_cz.h~	2025-02-20 20:40:39.000000000 +0100
++++ doxygen-1.14.0/src/translator_cz.h	2026-11-08 15:44:55.190122258 +0100
+@@ -162,11 +162,7 @@
+     {
+       return "\\usepackage[T2A]{fontenc}\n"
+              "\\usepackage[czech]{babel}\n"
+-             "\\usepackage{regexpatch}\n"
+              "\\makeatletter\n"
+-             "% Change the `-` delimiter to an active character\n"
+-             "\\xpatchparametertext\\@@@cmidrule{-}{\\cA-}{}{}\n"
+-             "\\xpatchparametertext\\@cline{-}{\\cA-}{}{}\n"
+              "\\makeatother\n";
+     }
+ 
+--- doxygen-1.14.0/src/translator_sk.h~	2025-02-20 20:40:39.000000000 +0100
++++ doxygen-1.14.0/src/translator_sk.h	2026-11-08 15:45:27.920063334 +0100
+@@ -42,11 +42,7 @@
+ 
+     QCString latexLanguageSupportCommand() override
+     { return "\\usepackage[slovak]{babel}\n"
+-             "\\usepackage{regexpatch}\n"
+              "\\makeatletter\n"
+-             "% Change the `-` delimiter to an active character\n"
+-             "\\xpatchparametertext\\@@@cmidrule{-}{\\cA-}{}{}\n"
+-             "\\xpatchparametertext\\@cline{-}{\\cA-}{}{}\n"
+              "\\makeatother\n";
+     }
+     QCString trISOLang() override
